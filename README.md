@@ -1,2 +1,2 @@
 # Linux-Basic
-1. Bash Bash-script;
+1. Bash;
