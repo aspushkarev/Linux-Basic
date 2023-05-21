@@ -1,0 +1,221 @@
+    1  sudo apt update
+    2  sudo apt upgrade
+    3  sudo apt install perl gcc make
+    4  ssh version
+    5  ip a
+    6  sudo ssh install
+    7  sudo apt install ssh
+    8  poweroff
+    9  sudo apt apdate
+   10  sudo apt update
+   11  apt list --upgradable 
+   12  sudo apt upgrade 
+   13  htop
+   14  top
+   15  clear
+   16  df -h
+   17  df -H
+   18  clear
+   19  pwd
+   20  ll
+   21  wl -l
+   22  wc -l
+   23  clear
+   24  ls -l
+   25  ls -la
+   26  cat #!/bin/bash > clear
+   27  ls -la
+   28  clear
+   29  ls -l
+   30  echo #!/bin/bash > clear
+   31  ls -l
+   32  ls -la
+   33  touch clear
+   34  ls -l
+   35  vi clear
+   36  cat clear 
+   37  chmod +x clear 
+   38  ls -l
+   39  clear /etc/
+   40  clear /etc
+   41  mv clear clear1
+   42  ls -l
+   43  clear1 /etc
+   44  bash clear1 
+   45  echo $?
+   46  bash clear1 rt
+   47  echo $?
+   48  vi clear1 
+   49  bash clear1 /etc/
+   50  bash clear1 /etrr
+   51  vi clear1 
+   52  bash clear1 /etrr
+   53  bash clear1 /etc/
+   54  vi clear1 
+   55  bash clear1 /etc/
+   56  bash clear1 /ete
+   57  echo $?
+   58  bash clear1 /etc/
+   59  echo $?
+   60  clear
+   61  history 
+   62  history | wc -l
+   63  vi clear1 
+   64  bash clear1 /etc/
+   65  bash clear1 /et
+   66  vi clear1 
+   67  bash clear1 /et
+   68  bash clear1 /etc/
+   69  vi clear1 
+   70  bash clear1 /etc/
+   71  vi clear1 
+   72  bash clear1 /home/aspushkarev/
+   73  ls -l
+   74  touch 1.tmp
+   75  touch 2.tmp
+   76  ls -l
+   77  pwd
+   78  bash clear1 ./
+   79  bash clear1 /home/aspushkarev/
+   80  ll
+   81  vi clear1 
+   82  bash clear1 /home/aspushkarev/
+   83  vi clear1 
+   84  bash clear1 /home/aspushkarev/
+   85  ll
+   86  vi clear1 
+   87  bash clear1 /home/aspushkarev/
+   88  ls -l
+   89  man test
+   90  vi clear1 
+   91  bash clear1 /home/aspushkarev/
+   92  ll
+   93  vi clear1 
+   94  bash clear1 /home/aspushkarev/
+   95  vi clear1 
+   96  bash clear1 /home/aspushkarev/
+   97  ll
+   98  vi clear1 
+   99  bash clear1 /home/aspushkarev/
+  100  vi clear1 
+  101  bash clear1 /home/aspushkarev/
+  102  vi clear1 
+  103  bash clear1 /home/aspushkarev/
+  104  vi clear1 
+  105  bash clear1 /home/aspushkarev/
+  106  pwd
+  107  ll
+  108  vi clear1 
+  109  bash clear1 /home/aspushkarev/
+  110  vi clear1 
+  111  bash clear1 /home/aspushkarev/
+  112  vi clear1 
+  113  bash clear1 /home/aspushkarev/
+  114  bash clear1 
+  115  vi clear1 
+  116  vi clear1 /etc/
+  117  bash clear1 /etc/
+  118  vi clear1 
+  119  vi clear1 /etc/
+  120  bash clear1 /etc/
+  121  bash clear1 /home/aspushkarev/
+  122  find $PWD -type f -name "*.tmp"
+  123  ll
+  124  vi clear1 
+  125  bash clear1 /home/aspushkarev/
+  126  ll
+  127  vi clear1 
+  128  find "$directory" -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup"\)
+  129  find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup"\)
+  130  vi clear1 
+  131  find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \)
+  132  find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \) | rm
+  133  find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \)
+  134  output=$(find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+  135  $output 
+  136  vi clear1 
+  137  bash clear1 $PWD
+  138  ll
+  139  output=$(find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+  140  rm output
+  141  rm $output
+  142  ll
+  143  vi clear1 
+  144  bash clear1 $PWD
+  145  touch 2.tmp
+  146  touch 4.bak
+  147  ll
+  148  bash clear1 
+  149  ll
+  150  bash clear1 $PWD
+  151  ll
+  152  ls -l
+  153  ll -al
+  154  bash clear1 $PWD
+  155  ll
+  156  vi clear1 
+  157  bash clear1 $PWD
+  158  ll
+  159  bash clear1 /home/aspushkarev/
+  160  ll
+  161  vi clear1 
+  162  bash clear1 /home/aspushkarev/
+  163  ll
+  164  output=$(find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+  165  -print $output 
+  166  print $output 
+  167  cat $output 
+  168  $output 
+  169  sudo $output 
+  170  vi clear1 
+  171  bash clear1 $PWD
+  172  ll
+  173  poweroff
+  174  sudo poweroff
+  175  ll
+  176  vi clear1
+  177  bash clear1 $PWD
+  178  ll
+  179  output=$(find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+  180  echo $output 
+  181  vi clear1
+  182  bash clear1 $PWD
+  183  ll
+  184  output=$(find $PWD -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+  185  echo $output 
+  186  vi clear1 
+  187  bash clear1 $PWD
+  188  ll
+  189  vi clear1 
+  190  bash clear1 $PWD
+  191  vi clear1
+  192  bash clear1 $PWD
+  193  vi clear1
+  194  bash clear1 $PWD
+  195  bash clear1 $PWDS
+  196  bash clear1 $PWDSS
+  197  bash clear1 $P
+  198  bash clear1 /etc/eeeee
+  199  echo $?
+  200  bash clear1 /etc/
+  201  sudo bash clear1 /etc/
+  202  echo $?
+  203  ls -la /etc/ 
+  204  bash clear1 /home/aspushkarev/
+  205  vi clear1 
+  206  bash clear1 /home/aspushkarev/
+  207  ll
+  208  vi clear1 
+  209  ll
+  210  touch file{1..6}.bak
+  211  ll
+  212  touch file{1..4}.tmp
+  213  touch create_f
+  214  vi create_f 
+  215  chmod +x create_f 
+  216  bash create_f 
+  217  ll
+  218  bash clear1 
+  219  ll
+  220  history 
+  221  history > history_f

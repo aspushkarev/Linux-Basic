@@ -1,0 +1,14 @@
+#!/bin/bash
+
+directory=$1
+if [ -d $directory ]
+   then
+	echo "Directory exists!"
+	output=$(find $directory -type f \( -name "*.tmp" -o -name "*.bak" -o -name "*.backup" \))
+        rm $output
+	echo "These files have been removed:"
+        echo $output
+   else
+	echo "No such directory: $directory"
+	exit 2
+fi

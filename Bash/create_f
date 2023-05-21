@@ -1,0 +1,6 @@
+#!/bin/bash
+
+touch file{1..7}.tmp
+touch file{3..5}.backup
+touch file{6..9}.bak
+echo 'OK'
