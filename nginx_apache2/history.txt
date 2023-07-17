@@ -1,0 +1,193 @@
+  231  man scp
+  232  scp aspushkarev@192.168.1.136:/home/aspushkarev/clear1 /Users/alexander/Downloads
+  233  scp aspushkarev@192.168.1.136:/home/aspushkarev/clear1 /Users/alexander/Downloads
+  234  scp aspushkarev@192.168.1.136:/home/aspushkarev/clear1 /Users/alexander
+  235  pwd
+  236  ls -l
+  237  scp aspushkarev@192.168.1.136:/home/aspushkarev/clear1 :/Users/alexander
+  238  scp -E aspushkarev@192.168.1.136:/home/aspushkarev/clear1 /Users/alexander/Downloads/
+  239  man scp
+  240  clear
+  241  exit
+  242  ll
+  243  cp clear1 clear_f
+  244  ll
+  245  sudo apt update
+  246  sudo apt install nginx
+  247  nginx -V
+  248  exit
+  249  ping 8.8.8.8
+  250  tracert 8.8.8.8
+  251  exit
+  252  systemctl status nginx
+  253  systemctl status grep
+  254  systemctl status docker
+  255  ps afx
+  256  ss -ntlp;
+  257  ss -ntlp
+  258  systemctl status nginx
+  259  ss -ntlp
+  260  sudo ss -ntlp
+  261  curl localhost
+  262  cd /etc/nginx/
+  263  ll
+  264  vim nginx.conf 
+  265  cd sites-enabled/
+  266  ll
+  267  nano default 
+  268  apt install apache2
+  269  sudo apt install apache2
+  270  cd /etc/apache2/
+  271  ll
+  272  grep -rni listen
+  273  nano ports.conf 
+  274  sudo nano ports.conf 
+  275  cat ports.conf 
+  276  systemctl reload apache2
+  277  su root
+  278  sudo systemctl restart apache2
+  279  apache2
+  280  ps afx
+  281  ss -ntlp
+  282  sudo ss -ntlp
+  283  curl localhost
+  284  curl localhost:80
+  285  sudo ss -ntlp
+  286  cd ../../
+  287  cd /etc/nginx/
+  288  nano nginx.conf 
+  289  cd /etc/nginx/sites-enabled/
+  290  ll
+  291  nano default 
+  292  ~
+  293  cd ..
+  294  cd..
+  295  cd ..
+  296  pwd
+  297  cd home/aspushkarev/
+  298  pwd
+  299  ll
+  300  cd /etc/nginx/
+  301  ll
+  302  nano nginx.conf 
+  303  cd sites-enabled/
+  304  nano default 
+  305  ll
+  306  cd ../..;
+  307  cd ..
+  308  `
+;
+exit
+;
+  309  pwd
+  310  cd home/aspushkarev/
+  311  ll
+  312  cat nginx_configs.conf 
+  313  cd /etc/nginx/
+  314  ll
+  315  cat nginx.conf 
+  316  ll
+  317  cd sites-available/
+  318  ll
+  319  nano default 
+  320  sudo nano default 
+  321  cat default 
+  322  nginx -t
+  323  sudo nginx -t
+  324  sudo systemctl restart nginx.service 
+  325  cd /etc/apache2/
+  326  ll
+  327  cd sites-available/
+  328  ll
+  329  vim 000-default.conf 
+  330  nano 000-default.conf 
+  331  sudo nano 000-default.conf 
+  332  apachectl -t
+  333  sudo systemctl restart apache2
+  334  sudo ss -nltp
+  335  curl localhost | grep ':80'
+  336  sudo ss -nltp
+  337  curl localhost | grep ':80'
+  338  nginx -s reload
+  339  sudo nginx -s reload
+  340  service nginx reload 
+  341  service apache2 restart 
+  342  curl localhost | grep ':80'
+  343  cd /etc/apache2/
+  344  vim ports.conf 
+  345  systemctl reload apache2.service 
+  346  sudo systemctl reload apache2.service 
+  347  curl localhost | grep ':80'
+  348  ps afsx
+  349  ps afx
+  350  ps afx | grep apache2.conf && nginx 
+  351  sudo ps afx | grep apache2.conf && nginx 
+  352  sudo ps afx | grep nginx 
+  353  sudo ps afx | grep apache2.conf 
+  354  ~
+  355  curl localhost:8080
+  356  curl localhost:8081
+  357  curl localhost:8082
+  358  curl localhost:8083
+  359  curl localhost:8082
+  360  cd /etc/nginx/
+  361  cd sites-enabled/
+  362  nano default 
+  363  sudo nano default 
+  364  sudo nginx -t
+  365  systemctl reload nginx.service 
+  366  sudo nginx -s reload
+  367  sudo systemctl reload nginx.service 
+  368  sudo nano default 
+  369  sudo systemctl reload nginx.service 
+  370  sudo nginx -t
+  371  sudo nano default 
+  372  sudo systemctl reload nginx.service 
+  373  sudo systemctl reload apache2.service 
+  374  sudo nanno default 
+  375  sudo nano default 
+  376  sudo nginx -t
+  377  sudo systemctl reload nginx.service 
+  378  ping 192.168.1.136
+  379  ping 192.168.1.135
+  380  sudo nginx -s reload
+  381  cd /etc/apache2/
+  382  ll
+  383  cd sites-enabled/
+  384  ll
+  385  sudo nano 000-default.conf 
+  386  cd /var/www/html/
+  387  ll
+  388  nano index.html 
+  389  sudo nano index.html 
+  390  cd ..
+  391  ll
+  392  cp -r html html1
+  393  sudo cp -r html html1
+  394  sudo cp -r html html2
+  395  ll
+  396  cd html1
+  397  sudo nano index.html 
+  398  cd ..
+  399  cd html2
+  400  sudo nano index.html 
+  401  apachectl -t
+  402  sudo service apache2 reload 
+  403  ss -ntlp
+  404  sudo ss -ntlp
+  405  curl localhost | grep ':80'
+  406  sudo ss -nltp
+  407  ps afx | grep nginx && apache2
+  408  ps afx | grep nginx || apache2
+  409  ps afx | grep nginx && grep apache2
+  410  ps afx
+  411  systemctl status nginx.service 
+  412  systemctl status apache2
+  413  :q
+  414  sudo s -nltp
+  415  sudo ss -nltp
+  416  ps afx | grep nginx
+  417  ps afx | grep apache2
+  418  curl localhost | grep ':80'
+  419  history > .~/history.txt
+  420  history > ~/history.txt
