@@ -1,0 +1,709 @@
+Last login: Fri Jul 21 13:57:00 on ttys002
+alexander@iMac-Alexander ~ % ssh aspushkarev@192.168.1.29
+aspushkarev@192.168.1.29's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-153-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri 21 Jul 2023 11:01:54 AM UTC
+
+  System load:  0.02              Processes:               116
+  Usage of /:   61.1% of 9.75GB   Users logged in:         1
+  Memory usage: 58%               IPv4 address for enp0s3: 192.168.1.29
+  Swap usage:   0%                IPv4 address for enp0s8: 10.0.3.15
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how 
+MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster 
+deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+37 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '22.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Jul 21 11:01:18 2023 from 192.168.1.189
+aspushkarev@ubuntu-server-01:~$ sudo shu
+shuf      shutdown  
+aspushkarev@ubuntu-server-01:~$ sudo shu
+shuf      shutdown  
+aspushkarev@ubuntu-server-01:~$ sudo shutdown -r now
+[sudo] password for aspushkarev: 
+aspushkarev@ubuntu-server-01:~$ Connection to 192.168.1.29 closed by 
+remote host.
+Connection to 192.168.1.29 closed.
+alexander@iMac-Alexander ~ % ssh aspushkarev@192.168.1.29
+aspushkarev@192.168.1.29's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-153-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how 
+MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster 
+deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+37 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '22.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Jul 21 11:03:10 2023
+aspushkarev@ubuntu-server-02:~$ cd /var/lib/mysql
+-bash: cd: /var/lib/mysql: Permission denied
+aspushkarev@ubuntu-server-02:~$ cd /var/lib/mysql
+mysql/         mysql-files/   mysql-keyring/ mysql-upgrade/ 
+aspushkarev@ubuntu-server-02:~$ sudo cd /var/lib/mysql
+[sudo] password for aspushkarev: 
+sudo: cd: command not found
+aspushkarev@ubuntu-server-02:~$ cd /var/lib/mysql
+-bash: cd: /var/lib/mysql: Permission denied
+aspushkarev@ubuntu-server-02:~$ ps afx | grep mysqld
+   1368 pts/0    S+     0:00              \_ grep --color=auto mysqld
+    923 ?        Ssl    1:10 /usr/sbin/mysqld
+aspushkarev@ubuntu-server-02:~$ sudo ss -ntlp
+[sudo] password for aspushkarev: 
+State       Recv-Q      Send-Q           Local Address:Port             
+Peer Address:Port      Process                                                                                        
+LISTEN      0           4096             127.0.0.53%lo:53                    
+0.0.0.0:*          users:(("systemd-resolve",pid=627,fd=13))                                                     
+LISTEN      0           128                    0.0.0.0:22                    
+0.0.0.0:*          users:(("sshd",pid=713,fd=3))                                                                 
+LISTEN      0           70                   127.0.0.1:33060                 
+0.0.0.0:*          users:(("mysqld",pid=923,fd=21))                                                              
+LISTEN      0           151                  127.0.0.1:3306                  
+0.0.0.0:*          users:(("mysqld",pid=923,fd=33))                                                              
+LISTEN      0           511                    0.0.0.0:80                    
+0.0.0.0:*          users:(("nginx",pid=737,fd=6),("nginx",pid=736,fd=6))                                         
+LISTEN      0           128                       [::]:22                       
+[::]:*          users:(("sshd",pid=713,fd=4))                                                                 
+LISTEN      0           511                          *:8080                        
+*:*          
+users:(("apache2",pid=765,fd=4),("apache2",pid=764,fd=4),("apache2",pid=761,fd=4))            
+LISTEN      0           511                       [::]:80                       
+[::]:*          users:(("nginx",pid=737,fd=7),("nginx",pid=736,fd=7))                                         
+LISTEN      0           511                          *:8081                        
+*:*          
+users:(("apache2",pid=765,fd=6),("apache2",pid=764,fd=6),("apache2",pid=761,fd=6))            
+LISTEN      0           511                          *:8082                        
+*:*          
+users:(("apache2",pid=765,fd=8),("apache2",pid=764,fd=8),("apache2",pid=761,fd=8))            
+aspushkarev@ubuntu-server-02:~$ cd /var/lib/mysql
+-bash: cd: /var/lib/mysql: Permission denied
+aspushkarev@ubuntu-server-02:~$ sudo cd /var/lib/mysql
+sudo: cd: command not found
+aspushkarev@ubuntu-server-02:~$ cd /var/lib
+aspushkarev@ubuntu-server-02:/var/lib$ ll
+total 192
+drwxr-xr-x 48 root      root      4096 Jul 21 10:13 ./
+drwxr-xr-x 14 root      root      4096 Jul 14 17:36 ../
+drwxr-xr-x  4 root      root      4096 Feb 23  2022 AccountsService/
+drwxr-xr-x  5 root      root      4096 Jul 16 15:33 apache2/
+drwxr-xr-x  3 root      root      4096 May 29  2022 apport/
+drwxr-xr-x  5 root      root      4096 Jul 21 10:13 apt/
+drwxr-xr-x  2 root      root      4096 Sep 10  2020 boltd/
+drwxr-xr-x  8 root      root      4096 Jul 21 11:02 cloud/
+drwxr-xr-x  2 root      root      4096 Jul 21 03:56 command-not-found/
+drwxr-xr-x  2 root      root      4096 May 29  2022 dbus/
+drwxr-xr-x  2 root      root      4096 Apr 10  2020 dhcp/
+drwxr-xr-x  7 root      root      4096 Jul 21 10:14 dpkg/
+drwxr-xr-x  7 root      root      4096 May 21 07:19 fwupd/
+drwxr-xr-x  2 root      root      4096 Sep  9  2021 git/
+drwxr-xr-x  4 root      root      4096 May 29  2022 grub/
+drwxr-xr-x  2 root      root      4096 Jul 15 06:31 initramfs-tools/
+drwxr-xr-x  2 landscape landscape 4096 Feb 23  2022 landscape/
+drwxr-xr-x  2 root      root      4096 Jul 21 03:56 logrotate/
+drwxr-xr-x  2 root      root      4096 Feb 23  2022 man-db/
+drwxr-xr-x  3 root      root      4096 Jul 21 10:13 mecab/
+drwxr-xr-x  2 root      root      4096 Apr 15  2020 misc/
+drwx------  7 mysql     mysql     4096 Jul 21 11:03 mysql/
+drwx------  2 mysql     mysql     4096 Jul 21 10:13 mysql-files/
+drwx------  2 mysql     mysql     4096 Jul 21 10:13 mysql-keyring/
+drwxr-xr-x  2 root      root      4096 May 11 23:16 mysql-upgrade/
+drwxr-xr-x  7 root      root      4096 Jul 14 17:36 nginx/
+drwxr-xr-x  2 root      root      4096 Jun  5  2019 os-prober/
+drwxr-xr-x  2 root      root      4096 May 30  2022 PackageKit/
+drwxr-xr-x  2 root      root      4096 Jul 15 06:27 pam/
+drwxr-xr-x  2 root      root      4096 Nov  2  2020 plymouth/
+drwx------  3 root      root      4096 Feb 23  2022 polkit-1/
+drwx------  2 root      root      4096 Feb 23  2022 private/
+drwxr-xr-x  2 root      root      4096 Feb 23  2022 python/
+drwxr-xr-x 23 root      root      4096 Jul 21 11:02 snapd/
+drwxr-xr-x  3 root      root      4096 Feb 23  2022 sudo/
+drwxr-xr-x  9 root      root      4096 May 29  2022 systemd/
+drwxr-xr-x  2 tss       tss       4096 Dec  3  2019 tpm/
+drwxr-xr-x  5 root      root      4096 Jul 21 11:11 ubuntu-advantage/
+drwxr-xr-x  2 root      root      4096 May 21 03:57 
+ubuntu-release-upgrader/
+drwxr-xr-x  3 root      root      4096 May 29  2022 ucf/
+drwx------  2 root      root      4096 May 29  2022 udisks2/
+drwxr-xr-x  2 root      root      4096 Jul 21  2020 unattended-upgrades/
+drwxr-xr-x  2 root      root      4096 May 30  2022 update-manager/
+drwxr-xr-x  4 root      root      4096 Jul 21 11:03 update-notifier/
+drwxr-xr-x  2 root      root      4096 Dec 10  2019 upower/
+drwxr-xr-x  2 root      root      4096 Feb 10  2020 usb_modeswitch/
+drwxr-xr-x  2 root      root      4096 Feb 23  2022 usbutils/
+drwxr-xr-x  3 root      root      4096 Feb 23  2022 vim/
+aspushkarev@ubuntu-server-02:/var/lib$ sudo cd mysql
+sudo: cd: command not found
+aspushkarev@ubuntu-server-02:/var/lib$ cd mysql
+-bash: cd: mysql: Permission denied
+aspushkarev@ubuntu-server-02:/var/lib$ su root
+Password: 
+root@ubuntu-server-02:/var/lib# cd mysql
+root@ubuntu-server-02:/var/lib/mysql# ll
+total 90596
+drwx------  7 mysql mysql     4096 Jul 21 11:03  ./
+drwxr-xr-x 48 root  root      4096 Jul 21 10:13  ../
+-rw-r-----  1 mysql mysql       56 Jul 21 10:13  auto.cnf
+-rw-r-----  1 mysql mysql      180 Jul 21 10:13  binlog.000001
+-rw-r-----  1 mysql mysql      404 Jul 21 10:13  binlog.000002
+-rw-r-----  1 mysql mysql      180 Jul 21 10:38  binlog.000003
+-rw-r-----  1 mysql mysql      180 Jul 21 11:02  binlog.000004
+-rw-r-----  1 mysql mysql      157 Jul 21 11:03  binlog.000005
+-rw-r-----  1 mysql mysql       80 Jul 21 11:03  binlog.index
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  ca-key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  ca.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  client-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  client-key.pem
+-rw-r--r--  1 root  root         0 Jul 21 10:13  debian-5.7.flag
+-rw-r-----  1 mysql mysql   196608 Jul 21 11:05 '#ib_16384_0.dblwr'
+-rw-r-----  1 mysql mysql  8585216 Jul 21 10:13 '#ib_16384_1.dblwr'
+-rw-r-----  1 mysql mysql     3412 Jul 21 11:02  ib_buffer_pool
+-rw-r-----  1 mysql mysql 12582912 Jul 21 11:03  ibdata1
+-rw-r-----  1 mysql mysql 12582912 Jul 21 11:02  ibtmp1
+drwxr-x---  2 mysql mysql     4096 Jul 21 11:02 '#innodb_redo'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 11:02 '#innodb_temp'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  mysql/
+-rw-r-----  1 mysql mysql 25165824 Jul 21 11:03  mysql.ibd
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  performance_schema/
+-rw-------  1 mysql mysql     1680 Jul 21 10:13  private_key.pem
+-rw-r--r--  1 mysql mysql      452 Jul 21 10:13  public_key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  server-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  server-key.pem
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  sys/
+-rw-r-----  1 mysql mysql        4 Jul 21 11:03  ubuntu-server-02.pid
+-rw-r-----  1 mysql mysql 16777216 Jul 21 11:05  undo_001
+-rw-r-----  1 mysql mysql 16777216 Jul 21 11:05  undo_002
+root@ubuntu-server-02:/var/lib/mysql# rm auto.cnf 
+root@ubuntu-server-02:/var/lib/mysql# ll
+total 90592
+drwx------  7 mysql mysql     4096 Jul 21 12:48  ./
+drwxr-xr-x 48 root  root      4096 Jul 21 10:13  ../
+-rw-r-----  1 mysql mysql      180 Jul 21 10:13  binlog.000001
+-rw-r-----  1 mysql mysql      404 Jul 21 10:13  binlog.000002
+-rw-r-----  1 mysql mysql      180 Jul 21 10:38  binlog.000003
+-rw-r-----  1 mysql mysql      180 Jul 21 11:02  binlog.000004
+-rw-r-----  1 mysql mysql      157 Jul 21 11:03  binlog.000005
+-rw-r-----  1 mysql mysql       80 Jul 21 11:03  binlog.index
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  ca-key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  ca.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  client-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  client-key.pem
+-rw-r--r--  1 root  root         0 Jul 21 10:13  debian-5.7.flag
+-rw-r-----  1 mysql mysql   196608 Jul 21 11:05 '#ib_16384_0.dblwr'
+-rw-r-----  1 mysql mysql  8585216 Jul 21 10:13 '#ib_16384_1.dblwr'
+-rw-r-----  1 mysql mysql     3412 Jul 21 11:02  ib_buffer_pool
+-rw-r-----  1 mysql mysql 12582912 Jul 21 11:03  ibdata1
+-rw-r-----  1 mysql mysql 12582912 Jul 21 11:02  ibtmp1
+drwxr-x---  2 mysql mysql     4096 Jul 21 11:02 '#innodb_redo'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 11:02 '#innodb_temp'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  mysql/
+-rw-r-----  1 mysql mysql 25165824 Jul 21 11:03  mysql.ibd
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  performance_schema/
+-rw-------  1 mysql mysql     1680 Jul 21 10:13  private_key.pem
+-rw-r--r--  1 mysql mysql      452 Jul 21 10:13  public_key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  server-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  server-key.pem
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  sys/
+-rw-r-----  1 mysql mysql        4 Jul 21 11:03  ubuntu-server-02.pid
+-rw-r-----  1 mysql mysql 16777216 Jul 21 11:05  undo_001
+-rw-r-----  1 mysql mysql 16777216 Jul 21 11:05  undo_002
+root@ubuntu-server-02:/var/lib/mysql# service mysql restart
+root@ubuntu-server-02:/var/lib/mysql# ps afx
+    PID TTY      STAT   TIME COMMAND
+      2 ?        S      0:00 [kthreadd]
+      3 ?        I<     0:00  \_ [rcu_gp]
+      4 ?        I<     0:00  \_ [rcu_par_gp]
+      6 ?        I<     0:00  \_ [kworker/0:0H-kblockd]
+      8 ?        I<     0:00  \_ [mm_percpu_wq]
+      9 ?        S      0:00  \_ [ksoftirqd/0]
+     10 ?        I      0:00  \_ [rcu_sched]
+     11 ?        S      0:00  \_ [migration/0]
+     12 ?        S      0:00  \_ [idle_inject/0]
+     14 ?        S      0:00  \_ [cpuhp/0]
+     15 ?        S      0:00  \_ [kdevtmpfs]
+     16 ?        I<     0:00  \_ [netns]
+     17 ?        S      0:00  \_ [rcu_tasks_kthre]
+     18 ?        S      0:00  \_ [kauditd]
+     19 ?        S      0:00  \_ [khungtaskd]
+     20 ?        S      0:00  \_ [oom_reaper]
+     21 ?        I<     0:00  \_ [writeback]
+     22 ?        S      0:00  \_ [kcompactd0]
+     23 ?        SN     0:00  \_ [ksmd]
+     24 ?        SN     0:00  \_ [khugepaged]
+     70 ?        I<     0:00  \_ [kintegrityd]
+     71 ?        I<     0:00  \_ [kblockd]
+     72 ?        I<     0:00  \_ [blkcg_punt_bio]
+     73 ?        I<     0:00  \_ [tpm_dev_wq]
+     74 ?        I<     0:00  \_ [ata_sff]
+     75 ?        I<     0:00  \_ [md]
+     76 ?        I<     0:00  \_ [edac-poller]
+     77 ?        I<     0:00  \_ [devfreq_wq]
+     78 ?        S      0:00  \_ [watchdogd]
+     81 ?        S      0:00  \_ [kswapd0]
+     82 ?        S      0:00  \_ [ecryptfs-kthrea]
+     84 ?        I<     0:00  \_ [kthrotld]
+     85 ?        I<     0:00  \_ [acpi_thermal_pm]
+     86 ?        S      0:00  \_ [scsi_eh_0]
+     87 ?        I<     0:00  \_ [scsi_tmf_0]
+     88 ?        S      0:00  \_ [scsi_eh_1]
+     89 ?        I<     0:00  \_ [scsi_tmf_1]
+     91 ?        I<     0:00  \_ [vfio-irqfd-clea]
+     93 ?        I<     0:00  \_ [ipv6_addrconf]
+    102 ?        I<     0:00  \_ [kstrp]
+    105 ?        I<     0:00  \_ [kworker/0:1H-kblockd]
+    106 ?        I<     0:00  \_ [kworker/u3:0]
+    120 ?        I<     0:00  \_ [charger_manager]
+    156 ?        I<     0:00  \_ [cryptd]
+    159 ?        S      0:00  \_ [scsi_eh_2]
+    160 ?        I<     0:00  \_ [scsi_tmf_2]
+    197 ?        S      0:00  \_ [irq/18-vmwgfx]
+    198 ?        I<     0:00  \_ [ttm_swap]
+    206 ?        I<     0:00  \_ [kdmflush]
+    232 ?        I<     0:00  \_ [raid5wq]
+    279 ?        S      0:00  \_ [jbd2/dm-0-8]
+    280 ?        I<     0:00  \_ [ext4-rsv-conver]
+    397 ?        I<     0:00  \_ [iprt-VBoxWQueue]
+    535 ?        I<     0:00  \_ [kaluad]
+    536 ?        I<     0:00  \_ [kmpath_rdacd]
+    537 ?        I<     0:00  \_ [kmpathd]
+    538 ?        I<     0:00  \_ [kmpath_handlerd]
+    551 ?        S<     0:00  \_ [loop0]
+    554 ?        S<     0:00  \_ [loop1]
+    555 ?        S<     0:00  \_ [loop2]
+    556 ?        S<     0:00  \_ [loop3]
+    559 ?        S<     0:00  \_ [loop4]
+    561 ?        S<     0:00  \_ [loop5]
+    564 ?        S      0:00  \_ [jbd2/sda2-8]
+    566 ?        I<     0:00  \_ [ext4-rsv-conver]
+   1248 ?        I      0:02  \_ [kworker/0:0-events]
+   1288 ?        I      0:14  \_ [kworker/0:1-events]
+   1361 ?        I      0:00  \_ [kworker/u2:1-events_power_efficient]
+   1376 ?        I      0:00  \_ [kworker/u2:0-events_power_efficient]
+   1567 ?        I      0:00  \_ [kworker/u2:2-events_unbound]
+   1592 ?        I      0:00  \_ [kworker/0:2-cgroup_destroy]
+      1 ?        Ss     0:01 /sbin/init maybe-ubiquity
+    350 ?        S<s    0:00 /lib/systemd/systemd-journald
+    385 ?        Ss     0:01 /lib/systemd/systemd-udevd
+    539 ?        SLsl   0:00 /sbin/multipathd -d -s
+    582 ?        Ssl    0:00 /lib/systemd/systemd-timesyncd
+    625 ?        Ss     0:00 /lib/systemd/systemd-networkd
+    627 ?        Ss     0:00 /lib/systemd/systemd-resolved
+    640 ?        Ssl    0:00 /usr/lib/accountsservice/accounts-daemon
+    644 ?        Ss     0:00 /usr/sbin/cron -f
+    645 ?        Ss     0:00 /usr/bin/dbus-daemon --system 
+--address=systemd: --nofork --nopidfile -
+    657 ?        Ss     0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher 
+--run-startup-triggers
+    661 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+    663 ?        Ssl    0:00 /usr/sbin/rsyslogd -n -iNONE
+    666 ?        Ssl    0:01 /usr/lib/snapd/snapd
+    668 ?        Ss     0:00 /lib/systemd/systemd-logind
+    670 ?        Ssl    0:00 /usr/lib/udisks2/udisksd
+    671 ?        Ss     0:00 /usr/sbin/atd -f
+    713 ?        Ss     0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 
+10-100 startups
+   1139 ?        Ss     0:00  \_ sshd: aspushkarev [priv]
+   1213 ?        S      0:00      \_ sshd: aspushkarev@pts/0
+   1214 pts/0    Ss     0:00          \_ -bash
+   1559 pts/0    S      0:00              \_ su root
+   1560 pts/0    S      0:00                  \_ bash
+   1638 pts/0    R+     0:00                      \_ ps afx
+    717 ?        Ssl    0:00 /usr/bin/python3 
+/usr/share/unattended-upgrades/unattended-upgrade-shut
+    725 ?        Ssl    0:00 /usr/sbin/ModemManager
+    736 ?        Ss     0:00 nginx: master process /usr/sbin/nginx -g 
+daemon on; master_process on;
+    737 ?        S      0:00  \_ nginx: worker process
+    761 ?        Ss     0:00 /usr/sbin/apache2 -k start
+    764 ?        Sl     0:00  \_ /usr/sbin/apache2 -k start
+    765 ?        Sl     0:00  \_ /usr/sbin/apache2 -k start
+   1116 tty6     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty6 linux
+   1126 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+   1143 ?        Ss     0:00 /lib/systemd/systemd --user
+   1144 ?        S      0:00  \_ (sd-pam)
+   1595 ?        Ssl    0:02 /usr/sbin/mysqld
+root@ubuntu-server-02:/var/lib/mysql# ll
+total 90600
+drwx------  7 mysql mysql     4096 Jul 21 12:48  ./
+drwxr-xr-x 48 root  root      4096 Jul 21 10:13  ../
+-rw-r-----  1 mysql mysql       56 Jul 21 12:48  auto.cnf
+-rw-r-----  1 mysql mysql      180 Jul 21 10:13  binlog.000001
+-rw-r-----  1 mysql mysql      404 Jul 21 10:13  binlog.000002
+-rw-r-----  1 mysql mysql      180 Jul 21 10:38  binlog.000003
+-rw-r-----  1 mysql mysql      180 Jul 21 11:02  binlog.000004
+-rw-r-----  1 mysql mysql      180 Jul 21 12:48  binlog.000005
+-rw-r-----  1 mysql mysql      157 Jul 21 12:48  binlog.000006
+-rw-r-----  1 mysql mysql       96 Jul 21 12:48  binlog.index
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  ca-key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  ca.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  client-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  client-key.pem
+-rw-r--r--  1 root  root         0 Jul 21 10:13  debian-5.7.flag
+-rw-r-----  1 mysql mysql   196608 Jul 21 12:48 '#ib_16384_0.dblwr'
+-rw-r-----  1 mysql mysql  8585216 Jul 21 10:13 '#ib_16384_1.dblwr'
+-rw-r-----  1 mysql mysql     3427 Jul 21 12:48  ib_buffer_pool
+-rw-r-----  1 mysql mysql 12582912 Jul 21 12:48  ibdata1
+-rw-r-----  1 mysql mysql 12582912 Jul 21 12:48  ibtmp1
+drwxr-x---  2 mysql mysql     4096 Jul 21 12:48 '#innodb_redo'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 12:48 '#innodb_temp'/
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  mysql/
+-rw-r-----  1 mysql mysql 25165824 Jul 21 12:48  mysql.ibd
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  performance_schema/
+-rw-------  1 mysql mysql     1680 Jul 21 10:13  private_key.pem
+-rw-r--r--  1 mysql mysql      452 Jul 21 10:13  public_key.pem
+-rw-r--r--  1 mysql mysql     1112 Jul 21 10:13  server-cert.pem
+-rw-------  1 mysql mysql     1676 Jul 21 10:13  server-key.pem
+drwxr-x---  2 mysql mysql     4096 Jul 21 10:13  sys/
+-rw-r-----  1 mysql mysql        5 Jul 21 12:48  ubuntu-server-02.pid
+-rw-r-----  1 mysql mysql 16777216 Jul 21 12:48  undo_001
+-rw-r-----  1 mysql mysql 16777216 Jul 21 12:48  undo_002
+root@ubuntu-server-02:/var/lib/mysql# cat auto.cnf 
+[auto]
+server-uuid=f1bc1771-27c4-11ee-ac43-08002762f0f0
+root@ubuntu-server-02:/var/lib/mysql# cd /etc/mysql/mysql.conf.d/
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# ll
+total 16
+drwxr-xr-x 2 root root 4096 Jul 21 10:13 ./
+drwxr-xr-x 4 root root 4096 Jul 21 10:13 ../
+-rw-r--r-- 1 root root  132 Nov 15  2022 mysql.cnf
+-rw-r--r-- 1 root root 2220 Nov 15  2022 mysqld.cnf
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# nano mysqld.cnf 
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# service mysql restart
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> SELECT @@server_id;
++-------------+
+| @@server_id |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> STOP SLAVE;
+Query OK, 0 rows affected, 2 warnings (0.00 sec)
+
+mysql> CHANGE MASTER TO MASTER_HOST='192.168.1.136', MASTER_USER='repl', 
+MASTER_PASSWORD='aspushkarev', MASTER_LOG_FILE='binlog.000005', 
+MASTER_LOG_POS=690, GET_MASTER_PUBLIC_KEY = 1;
+Query OK, 0 rows affected, 9 warnings (0.06 sec)
+
+mysql> SHOW warnings;
++---------+------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Level   | Code | Message                                                                                                                                                                                                                                                                                          
+|
++---------+------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Warning | 1287 | 'CHANGE MASTER' is deprecated and will be removed in a 
+future release. Please use CHANGE REPLICATION SOURCE instead                                                                                                                                                                              
+|
+| Warning | 1287 | 'MASTER_HOST' is deprecated and will be removed in a 
+future release. Please use SOURCE_HOST instead                                                                                                                                                                                              
+|
+| Warning | 1287 | 'MASTER_USER' is deprecated and will be removed in a 
+future release. Please use SOURCE_USER instead                                                                                                                                                                                              
+|
+| Warning | 1287 | 'MASTER_PASSWORD' is deprecated and will be removed in 
+a future release. Please use SOURCE_PASSWORD instead                                                                                                                                                                                      
+|
+| Warning | 1287 | 'MASTER_LOG_FILE' is deprecated and will be removed in 
+a future release. Please use SOURCE_LOG_FILE instead                                                                                                                                                                                      
+|
+| Warning | 1287 | 'MASTER_LOG_POS' is deprecated and will be removed in a 
+future release. Please use SOURCE_LOG_POS instead                                                                                                                                                                                        
+|
+| Warning | 1287 | 'GET_MASTER_PUBLIC_KEY' is deprecated and will be 
+removed in a future release. Please use GET_SOURCE_PUBLIC_KEY instead                                                                                                                                                                          
+|
+| Note    | 1759 | Sending passwords in plain text without SSL/TLS is 
+extremely insecure.                                                                                                                                                                                                                           
+|
+| Note    | 1760 | Storing MySQL user name or password information in the 
+connection metadata repository is not secure and is therefore not 
+recommended. Please consider using the USER and PASSWORD connection 
+options for START REPLICA; see the 'START REPLICA Syntax' in the MySQL 
+Manual for more information. |
++---------+------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> START SLAVE;
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> show slave status\G
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for source to send event
+                  Master_Host: 192.168.1.136
+                  Master_User: repl
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: binlog.000005
+          Read_Master_Log_Pos: 690
+               Relay_Log_File: ubuntu-server-02-relay-bin.000002
+                Relay_Log_Pos: 323
+        Relay_Master_Log_File: binlog.000005
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB: 
+          Replicate_Ignore_DB: 
+           Replicate_Do_Table: 
+       Replicate_Ignore_Table: 
+      Replicate_Wild_Do_Table: 
+  Replicate_Wild_Ignore_Table: 
+                   Last_Errno: 0
+                   Last_Error: 
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 690
+              Relay_Log_Space: 544
+              Until_Condition: None
+               Until_Log_File: 
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File: 
+           Master_SSL_CA_Path: 
+              Master_SSL_Cert: 
+            Master_SSL_Cipher: 
+               Master_SSL_Key: 
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error: 
+               Last_SQL_Errno: 0
+               Last_SQL_Error: 
+  Replicate_Ignore_Server_Ids: 
+             Master_Server_Id: 1
+                  Master_UUID: 3f5fb415-27af-11ee-a9e5-0800271f48a0
+             Master_Info_File: mysql.slave_master_info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Replica has read all relay log; waiting for 
+more updates
+           Master_Retry_Count: 86400
+                  Master_Bind: 
+      Last_IO_Error_Timestamp: 
+     Last_SQL_Error_Timestamp: 
+               Master_SSL_Crl: 
+           Master_SSL_Crlpath: 
+           Retrieved_Gtid_Set: 
+            Executed_Gtid_Set: 
+                Auto_Position: 0
+         Replicate_Rewrite_DB: 
+                 Channel_Name: 
+           Master_TLS_Version: 
+       Master_public_key_path: 
+        Get_master_public_key: 1
+            Network_Namespace: 
+1 row in set, 1 warning (0.00 sec)
+
+mysql> exit
+Bye
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> show slave status\G
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for source to send event
+                  Master_Host: 192.168.1.136
+                  Master_User: repl
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: binlog.000005
+          Read_Master_Log_Pos: 878
+               Relay_Log_File: ubuntu-server-02-relay-bin.000002
+                Relay_Log_Pos: 511
+        Relay_Master_Log_File: binlog.000005
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB: 
+          Replicate_Ignore_DB: 
+           Replicate_Do_Table: 
+       Replicate_Ignore_Table: 
+      Replicate_Wild_Do_Table: 
+  Replicate_Wild_Ignore_Table: 
+                   Last_Errno: 0
+                   Last_Error: 
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 878
+              Relay_Log_Space: 732
+              Until_Condition: None
+               Until_Log_File: 
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File: 
+           Master_SSL_CA_Path: 
+              Master_SSL_Cert: 
+            Master_SSL_Cipher: 
+               Master_SSL_Key: 
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error: 
+               Last_SQL_Errno: 0
+               Last_SQL_Error: 
+  Replicate_Ignore_Server_Ids: 
+             Master_Server_Id: 1
+                  Master_UUID: 3f5fb415-27af-11ee-a9e5-0800271f48a0
+             Master_Info_File: mysql.slave_master_info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Replica has read all relay log; waiting for 
+more updates
+           Master_Retry_Count: 86400
+                  Master_Bind: 
+      Last_IO_Error_Timestamp: 
+     Last_SQL_Error_Timestamp: 
+               Master_SSL_Crl: 
+           Master_SSL_Crlpath: 
+           Retrieved_Gtid_Set: 
+            Executed_Gtid_Set: 
+                Auto_Position: 0
+         Replicate_Rewrite_DB: 
+                 Channel_Name: 
+           Master_TLS_Version: 
+       Master_public_key_path: 
+        Get_master_public_key: 1
+            Network_Namespace: 
+1 row in set, 1 warning (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_db              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.06 sec)
+
+mysql> USE my_db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++-----------------+
+| Tables_in_my_db |
++-----------------+
+| my_id           |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM my_id;
++------+
+| id   |
++------+
+|    2 |
+|    4 |
+|    6 |
+|  245 |
+|  789 |
+|    3 |
++------+
+6 rows in set (0.00 sec)
+
+mysql> учше
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual 
+that corresponds to your MySQL server version for the right syntax to use 
+near 'учше' at line 1
+mysql> exit
+Bye
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# mysqldump my_db > 
+dump_my_db.sql
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# ll
+total 20
+drwxr-xr-x 2 root root 4096 Jul 21 13:44 ./
+drwxr-xr-x 4 root root 4096 Jul 21 10:13 ../
+-rw-r--r-- 1 root root 1855 Jul 21 13:44 dump_my_db.sql
+-rw-r--r-- 1 root root  132 Nov 15  2022 mysql.cnf
+-rw-r--r-- 1 root root 2217 Jul 21 12:51 mysqld.cnf
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# rm dump_my_db.sql 
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# ll
+total 16
+drwxr-xr-x 2 root root 4096 Jul 21 13:44 ./
+drwxr-xr-x 4 root root 4096 Jul 21 10:13 ../
+-rw-r--r-- 1 root root  132 Nov 15  2022 mysql.cnf
+-rw-r--r-- 1 root root 2217 Jul 21 12:51 mysqld.cnf
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# ~
+bash: /root: Is a directory
+root@ubuntu-server-02:/etc/mysql/mysql.conf.d# cd ~
+root@ubuntu-server-02:~# pwd
+/root
+root@ubuntu-server-02:~# mysqldump my_db > dump_my_db.sql
+root@ubuntu-server-02:~# ll
+total 44
+drwx------  5 root root 4096 Jul 21 13:45 ./
+drwxr-xr-x 19 root root 4096 May 29  2022 ../
+-rw-------  1 root root   12 Jul 21 12:47 .bash_history
+-rw-r--r--  1 root root 3106 Dec  5  2019 .bashrc
+-rw-r--r--  1 root root 1855 Jul 21 13:45 dump_my_db.sql
+drwxr-xr-x  3 root root 4096 Jun  6  2022 .local/
+-rw-------  1 root root  418 Jul 21 13:41 .mysql_history
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  3 root root 4096 May 29  2022 snap/
+drwx------  2 root root 4096 May 29  2022 .ssh/
+-rw-------  1 root root  749 Jul 21 11:01 .viminfo
+root@ubuntu-server-02:~# nano dump_my_db.sql 
+root@ubuntu-server-02:~# mysqldump --master-data=2 my_db > dump_my_db.sql
+WARNING: --master-data is deprecated and will be removed in a future 
+version. Use --source-data instead.
+root@ubuntu-server-02:~# nano dump_my_db.sql 
+root@ubuntu-server-02:~# 

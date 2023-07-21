@@ -1,0 +1,928 @@
+alexander@iMac-Alexander Hash-Table-in-Python % ssh 
+aspushkarev@192.168.1.136
+aspushkarev@192.168.1.136's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-148-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how 
+MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster 
+deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+37 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+*** System restart required ***
+Last login: Thu Jul 20 08:40:51 2023 from 192.168.1.189
+aspushkarev@ubuntu-server-01:~$ sudo apt install my
+Display all 137 possibilities? (y or n)
+aspushkarev@ubuntu-server-01:~$ sudo apt install mysql-server-8.0
+[sudo] password for aspushkarev: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer 
+required:
+  libfwupdplugin1 libxmlb1
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libencode-locale-perl 
+libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-perl libhtml-parser-perl 
+libhtml-tagset-perl
+  libhtml-template-perl libhttp-date-perl libhttp-message-perl 
+libio-html-perl
+  liblwp-mediatypes-perl libmecab2 libtimedate-perl liburi-perl 
+mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 
+mysql-common
+  mysql-server-core-8.0
+Suggested packages:
+  libdata-dump-perl libipc-sharedcache-perl libwww-perl mailx tinyca
+The following NEW packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libencode-locale-perl 
+libevent-core-2.1-7
+  libevent-pthreads-2.1-7 libfcgi-perl libhtml-parser-perl 
+libhtml-tagset-perl
+  libhtml-template-perl libhttp-date-perl libhttp-message-perl 
+libio-html-perl
+  liblwp-mediatypes-perl libmecab2 libtimedate-perl liburi-perl 
+mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0 
+mysql-common
+  mysql-server-8.0 mysql-server-core-8.0
+0 upgraded, 24 newly installed, 0 to remove and 37 not upgraded.
+Need to get 36.8 MB of archives.
+After this operation, 319 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 mysql-common 
+all 5.8+1.0.5ubuntu2 [7,496 B]
+Get:2 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 
+mysql-client-core-8.0 amd64 8.0.33-0ubuntu0.20.04.2 [5,173 kB]
+Get:3 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 
+mysql-client-8.0 amd64 8.0.33-0ubuntu0.20.04.2 [22.0 kB]
+Get:4 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libevent-core-2.1-7 amd64 2.1.11-stable-1 [89.1 kB]
+Get:5 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libevent-pthreads-2.1-7 amd64 2.1.11-stable-1 [7,372 B]
+Get:6 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 libmecab2 amd64 
+0.996-10build1 [233 kB]
+Get:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 
+mysql-server-core-8.0 amd64 8.0.33-0ubuntu0.20.04.2 [22.6 MB]
+Get:8 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 
+mysql-server-8.0 amd64 8.0.33-0ubuntu0.20.04.2 [1,321 kB]
+Get:9 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libhtml-tagset-perl all 3.20-4 [12.5 kB]
+Get:10 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 liburi-perl 
+all 1.76-2 [77.5 kB]
+Get:11 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libhtml-parser-perl amd64 3.72-5 [86.3 kB]
+Get:12 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 libcgi-pm-perl 
+all 4.46-1 [186 kB]
+Get:13 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 libfcgi-perl 
+amd64 0.79-1 [33.1 kB]
+Get:14 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libcgi-fast-perl all 1:2.15-1 [10.5 kB]
+Get:15 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libencode-locale-perl all 1.05-1 [12.3 kB]
+Get:16 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libhtml-template-perl all 2.97-1 [59.0 kB]
+Get:17 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libtimedate-perl all 2.3200-1 [34.0 kB]
+Get:18 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libhttp-date-perl all 6.05-1 [9,920 B]
+Get:19 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libio-html-perl all 1.001-1 [14.9 kB]
+Get:20 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+liblwp-mediatypes-perl all 6.04-1 [19.5 kB]
+Get:21 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+libhttp-message-perl all 6.22-1 [76.1 kB]
+Get:22 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 mecab-utils 
+amd64 0.996-10build1 [4,912 B]
+Get:23 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 mecab-ipadic 
+all 2.7.0-20070801+main-2.1 [6,714 kB]
+Get:24 http://ru.archive.ubuntu.com/ubuntu focal/main amd64 
+mecab-ipadic-utf8 all 2.7.0-20070801+main-2.1 [4,380 B]
+Fetched 36.8 MB in 20s (1,835 kB/s)                                                  
+Preconfiguring packages ...
+Selecting previously unselected package mysql-common.
+(Reading database ... 114408 files and directories currently installed.)
+Preparing to unpack .../0-mysql-common_5.8+1.0.5ubuntu2_all.deb ...
+Unpacking mysql-common (5.8+1.0.5ubuntu2) ...
+Selecting previously unselected package mysql-client-core-8.0.
+Preparing to unpack 
+.../1-mysql-client-core-8.0_8.0.33-0ubuntu0.20.04.2_amd64.deb ...
+Unpacking mysql-client-core-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Selecting previously unselected package mysql-client-8.0.
+Preparing to unpack 
+.../2-mysql-client-8.0_8.0.33-0ubuntu0.20.04.2_amd64.deb ...
+Unpacking mysql-client-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Selecting previously unselected package libevent-core-2.1-7:amd64.
+Preparing to unpack .../3-libevent-core-2.1-7_2.1.11-stable-1_amd64.deb 
+...
+Unpacking libevent-core-2.1-7:amd64 (2.1.11-stable-1) ...
+Selecting previously unselected package libevent-pthreads-2.1-7:amd64.
+Preparing to unpack 
+.../4-libevent-pthreads-2.1-7_2.1.11-stable-1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-7:amd64 (2.1.11-stable-1) ...
+Selecting previously unselected package libmecab2:amd64.
+Preparing to unpack .../5-libmecab2_0.996-10build1_amd64.deb ...
+Unpacking libmecab2:amd64 (0.996-10build1) ...
+Selecting previously unselected package mysql-server-core-8.0.
+Preparing to unpack 
+.../6-mysql-server-core-8.0_8.0.33-0ubuntu0.20.04.2_amd64.deb ...
+Unpacking mysql-server-core-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Setting up mysql-common (5.8+1.0.5ubuntu2) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide 
+/etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mysql-server-8.0.
+(Reading database ... 114624 files and directories currently installed.)
+Preparing to unpack 
+.../00-mysql-server-8.0_8.0.33-0ubuntu0.20.04.2_amd64.deb ...
+Unpacking mysql-server-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../01-libhtml-tagset-perl_3.20-4_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-4) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../02-liburi-perl_1.76-2_all.deb ...
+Unpacking liburi-perl (1.76-2) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../03-libhtml-parser-perl_3.72-5_amd64.deb ...
+Unpacking libhtml-parser-perl (3.72-5) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../04-libcgi-pm-perl_4.46-1_all.deb ...
+Unpacking libcgi-pm-perl (4.46-1) ...
+Selecting previously unselected package libfcgi-perl.
+Preparing to unpack .../05-libfcgi-perl_0.79-1_amd64.deb ...
+Unpacking libfcgi-perl (0.79-1) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../06-libcgi-fast-perl_1%3a2.15-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.15-1) ...
+Selecting previously unselected package libencode-locale-perl.
+Preparing to unpack .../07-libencode-locale-perl_1.05-1_all.deb ...
+Unpacking libencode-locale-perl (1.05-1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../08-libhtml-template-perl_2.97-1_all.deb ...
+Unpacking libhtml-template-perl (2.97-1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../09-libtimedate-perl_2.3200-1_all.deb ...
+Unpacking libtimedate-perl (2.3200-1) ...
+Selecting previously unselected package libhttp-date-perl.
+Preparing to unpack .../10-libhttp-date-perl_6.05-1_all.deb ...
+Unpacking libhttp-date-perl (6.05-1) ...
+Selecting previously unselected package libio-html-perl.
+Preparing to unpack .../11-libio-html-perl_1.001-1_all.deb ...
+Unpacking libio-html-perl (1.001-1) ...
+Selecting previously unselected package liblwp-mediatypes-perl.
+Preparing to unpack .../12-liblwp-mediatypes-perl_6.04-1_all.deb ...
+Unpacking liblwp-mediatypes-perl (6.04-1) ...
+Selecting previously unselected package libhttp-message-perl.
+Preparing to unpack .../13-libhttp-message-perl_6.22-1_all.deb ...
+Unpacking libhttp-message-perl (6.22-1) ...
+Selecting previously unselected package mecab-utils.
+Preparing to unpack .../14-mecab-utils_0.996-10build1_amd64.deb ...
+Unpacking mecab-utils (0.996-10build1) ...
+Selecting previously unselected package mecab-ipadic.
+Preparing to unpack .../15-mecab-ipadic_2.7.0-20070801+main-2.1_all.deb 
+...
+Unpacking mecab-ipadic (2.7.0-20070801+main-2.1) ...
+Selecting previously unselected package mecab-ipadic-utf8.
+Preparing to unpack 
+.../16-mecab-ipadic-utf8_2.7.0-20070801+main-2.1_all.deb ...
+Unpacking mecab-ipadic-utf8 (2.7.0-20070801+main-2.1) ...
+Setting up libmecab2:amd64 (0.996-10build1) ...
+Setting up mysql-client-core-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Setting up libhtml-tagset-perl (3.20-4) ...
+Setting up liblwp-mediatypes-perl (6.04-1) ...
+Setting up libencode-locale-perl (1.05-1) ...
+Setting up mecab-utils (0.996-10build1) ...
+Setting up libevent-core-2.1-7:amd64 (2.1.11-stable-1) ...
+Setting up libio-html-perl (1.001-1) ...
+Setting up libtimedate-perl (2.3200-1) ...
+Setting up mysql-client-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Setting up libfcgi-perl (0.79-1) ...
+Setting up liburi-perl (1.76-2) ...
+Setting up libevent-pthreads-2.1-7:amd64 (2.1.11-stable-1) ...
+Setting up libhttp-date-perl (6.05-1) ...
+Setting up mecab-ipadic (2.7.0-20070801+main-2.1) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic to provide 
+/var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up mysql-server-core-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+Setting up mecab-ipadic-utf8 (2.7.0-20070801+main-2.1) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################| 
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+emitting double-array: 100% |###########################################| 
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################| 
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic-utf8 to provide 
+/var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up libhtml-parser-perl (3.72-5) ...
+Setting up libhttp-message-perl (6.22-1) ...
+Setting up mysql-server-8.0 (8.0.33-0ubuntu0.20.04.2) ...
+update-alternatives: using /etc/mysql/mysql.cnf to provide 
+/etc/mysql/my.cnf (my.cnf) in auto mode
+Renaming removed key_buffer and myisam-recover options (if present)
+mysqld will log errors to /var/log/mysql/error.log
+mysqld is running as pid 43403
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service 
+→ /lib/systemd/system/mysql.service.
+Setting up libcgi-pm-perl (4.46-1) ...
+Setting up libhtml-template-perl (2.97-1) ...
+Setting up libcgi-fast-perl (1:2.15-1) ...
+Processing triggers for systemd (245.4-4ubuntu3.21) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+aspushkarev@ubuntu-server-01:~$ systemctl sta
+start   status  
+aspushkarev@ubuntu-server-01:~$ systemctl status mysql
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor 
+preset: enabl>
+     Active: active (running) since Fri 2023-07-21 10:14:00 UTC; 39s ago
+   Main PID: 43639 (mysqld)
+     Status: "Server is operational"
+      Tasks: 38 (limit: 1064)
+     Memory: 353.8M
+     CGroup: /system.slice/mysql.service
+             └─43639 /usr/sbin/mysqld
+
+Jul 21 10:13:57 ubuntu-server-01 systemd[1]: Starting MySQL Community 
+Server...
+Jul 21 10:14:00 ubuntu-server-01 systemd[1]: Started MySQL Community 
+Server.
+aspushkarev@ubuntu-server-01:~$ sudo ss -ntlp
+State      Recv-Q     Send-Q         Local Address:Port          Peer 
+Address:Port    Process                                                                               
+LISTEN     0          4096           127.0.0.53%lo:53                 
+0.0.0.0:*        users:(("systemd-resolve",pid=625,fd=13))                                            
+LISTEN     0          128                  0.0.0.0:22                 
+0.0.0.0:*        users:(("sshd",pid=706,fd=3))                                                        
+LISTEN     0          70                 127.0.0.1:33060              
+0.0.0.0:*        users:(("mysqld",pid=43639,fd=21))                                                   
+LISTEN     0          151                127.0.0.1:3306               
+0.0.0.0:*        users:(("mysqld",pid=43639,fd=23))                                                   
+LISTEN     0          511                  0.0.0.0:80                 
+0.0.0.0:*        users:(("nginx",pid=35126,fd=6),("nginx",pid=33594,fd=6))                            
+LISTEN     0          128                     [::]:22                    
+[::]:*        users:(("sshd",pid=706,fd=4))                                                        
+LISTEN     0          511                        *:8080                     
+*:*        
+users:(("apache2",pid=41859,fd=4),("apache2",pid=41858,fd=4),("apache2",pid=33910,fd=4))
+LISTEN     0          511                     [::]:80                    
+[::]:*        users:(("nginx",pid=35126,fd=7),("nginx",pid=33594,fd=7))                            
+LISTEN     0          511                        *:8081                     
+*:*        
+users:(("apache2",pid=41859,fd=6),("apache2",pid=41858,fd=6),("apache2",pid=33910,fd=6))
+LISTEN     0          511                        *:8082                     
+*:*        
+users:(("apache2",pid=41859,fd=8),("apache2",pid=41858,fd=8),("apache2",pid=33910,fd=8))
+aspushkarev@ubuntu-server-01:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> exit
+Bye
+aspushkarev@ubuntu-server-01:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.02 sec)
+
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+37 rows in set (0.00 sec)
+
+mysql> select * from users where users='root'\G
+ERROR 1146 (42S02): Table 'mysql.users' doesn't exist
+mysql> select * from user where user='root'\G
+*************************** 1. row ***************************
+                    Host: localhost
+                    User: root
+             Select_priv: Y
+             Insert_priv: Y
+             Update_priv: Y
+             Delete_priv: Y
+             Create_priv: Y
+               Drop_priv: Y
+             Reload_priv: Y
+           Shutdown_priv: Y
+            Process_priv: Y
+               File_priv: Y
+              Grant_priv: Y
+         References_priv: Y
+              Index_priv: Y
+              Alter_priv: Y
+            Show_db_priv: Y
+              Super_priv: Y
+   Create_tmp_table_priv: Y
+        Lock_tables_priv: Y
+            Execute_priv: Y
+         Repl_slave_priv: Y
+        Repl_client_priv: Y
+        Create_view_priv: Y
+          Show_view_priv: Y
+     Create_routine_priv: Y
+      Alter_routine_priv: Y
+        Create_user_priv: Y
+              Event_priv: Y
+            Trigger_priv: Y
+  Create_tablespace_priv: Y
+                ssl_type: 
+              ssl_cipher: 0x
+             x509_issuer: 0x
+            x509_subject: 0x
+           max_questions: 0
+             max_updates: 0
+         max_connections: 0
+    max_user_connections: 0
+                  plugin: auth_socket
+   authentication_string: 
+        password_expired: N
+   password_last_changed: 2023-07-21 10:13:38
+       password_lifetime: NULL
+          account_locked: N
+        Create_role_priv: Y
+          Drop_role_priv: Y
+  Password_reuse_history: NULL
+     Password_reuse_time: NULL
+Password_require_current: NULL
+         User_attributes: NULL
+1 row in set (0.00 sec)
+
+mysql> exit
+Bye
+aspushkarev@ubuntu-server-01:~$ cd /etc/mysql/
+aspushkarev@ubuntu-server-01:/etc/mysql$ ll
+total 32
+drwxr-xr-x   4 root root 4096 Jul 21 10:13 ./
+drwxr-xr-x 104 root root 4096 Jul 21 10:14 ../
+drwxr-xr-x   2 root root 4096 Jul 21 10:13 conf.d/
+-rw-------   1 root root  317 Jul 21 10:13 debian.cnf
+-rwxr-xr-x   1 root root  120 May 11 23:16 debian-start*
+lrwxrwxrwx   1 root root   24 Jul 21 10:13 my.cnf -> 
+/etc/alternatives/my.cnf
+-rw-r--r--   1 root root  839 Aug  3  2016 my.cnf.fallback
+-rw-r--r--   1 root root  682 Nov 15  2022 mysql.cnf
+drwxr-xr-x   2 root root 4096 Jul 21 10:13 mysql.conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql$ cat my.cnf
+#
+# The MySQL database server configuration file.
+#
+# You can copy this to one of:
+# - "/etc/mysql/my.cnf" to set global options,
+# - "~/.my.cnf" to set user-specific options.
+# 
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
+
+!includedir /etc/mysql/conf.d/
+!includedir /etc/mysql/mysql.conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql$ cd conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql/conf.d$ ll
+total 16
+drwxr-xr-x 2 root root 4096 Jul 21 10:13 ./
+drwxr-xr-x 4 root root 4096 Jul 21 10:13 ../
+-rw-r--r-- 1 root root    8 Aug  3  2016 mysql.cnf
+-rw-r--r-- 1 root root   55 Aug  3  2016 mysqldump.cnf
+aspushkarev@ubuntu-server-01:/etc/mysql/conf.d$ cat mysql.cnf 
+[mysql]
+aspushkarev@ubuntu-server-01:/etc/mysql/conf.d$ cd ..
+aspushkarev@ubuntu-server-01:/etc/mysql$ cd mysql.conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ ll
+total 16
+drwxr-xr-x 2 root root 4096 Jul 21 10:13 ./
+drwxr-xr-x 4 root root 4096 Jul 21 10:13 ../
+-rw-r--r-- 1 root root  132 Nov 15  2022 mysql.cnf
+-rw-r--r-- 1 root root 2220 Nov 15  2022 mysqld.cnf
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ exit
+logout
+Connection to 192.168.1.136 closed.
+alexander@iMac-Alexander Hash-Table-in-Python % ssh 
+aspushkarev@192.168.1.136
+aspushkarev@192.168.1.136's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-153-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri 21 Jul 2023 10:56:30 AM UTC
+
+  System load:  0.16              Processes:               122
+  Usage of /:   61.1% of 9.75GB   Users logged in:         1
+  Memory usage: 58%               IPv4 address for enp0s3: 192.168.1.136
+  Swap usage:   0%                IPv4 address for enp0s8: 10.0.3.15
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how 
+MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster 
+deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+37 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '22.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Jul 21 10:53:58 2023
+aspushkarev@ubuntu-server-01:~$ cd /var/lib/mysql
+-bash: cd: /var/lib/mysql: Permission denied
+aspushkarev@ubuntu-server-01:~$ ps afx
+    PID TTY      STAT   TIME COMMAND
+      2 ?        S      0:00 [kthreadd]
+      3 ?        I<     0:00  \_ [rcu_gp]
+      4 ?        I<     0:00  \_ [rcu_par_gp]
+      6 ?        I<     0:00  \_ [kworker/0:0H-kblockd]
+      8 ?        I<     0:00  \_ [mm_percpu_wq]
+      9 ?        S      0:00  \_ [ksoftirqd/0]
+     10 ?        I      0:00  \_ [rcu_sched]
+     11 ?        S      0:00  \_ [migration/0]
+     12 ?        S      0:00  \_ [idle_inject/0]
+     14 ?        S      0:00  \_ [cpuhp/0]
+     15 ?        S      0:00  \_ [kdevtmpfs]
+     16 ?        I<     0:00  \_ [netns]
+     17 ?        S      0:00  \_ [rcu_tasks_kthre]
+     18 ?        S      0:00  \_ [kauditd]
+     19 ?        S      0:00  \_ [khungtaskd]
+     20 ?        S      0:00  \_ [oom_reaper]
+     21 ?        I<     0:00  \_ [writeback]
+     22 ?        S      0:00  \_ [kcompactd0]
+     23 ?        SN     0:00  \_ [ksmd]
+     24 ?        SN     0:00  \_ [khugepaged]
+     70 ?        I<     0:00  \_ [kintegrityd]
+     71 ?        I<     0:00  \_ [kblockd]
+     72 ?        I<     0:00  \_ [blkcg_punt_bio]
+     73 ?        I<     0:00  \_ [tpm_dev_wq]
+     74 ?        I<     0:00  \_ [ata_sff]
+     75 ?        I<     0:00  \_ [md]
+     76 ?        I<     0:00  \_ [edac-poller]
+     77 ?        I<     0:00  \_ [devfreq_wq]
+     78 ?        S      0:00  \_ [watchdogd]
+     81 ?        S      0:00  \_ [kswapd0]
+     82 ?        S      0:00  \_ [ecryptfs-kthrea]
+     84 ?        I<     0:00  \_ [kthrotld]
+     85 ?        I<     0:00  \_ [acpi_thermal_pm]
+     86 ?        S      0:00  \_ [scsi_eh_0]
+     87 ?        I<     0:00  \_ [scsi_tmf_0]
+     88 ?        S      0:00  \_ [scsi_eh_1]
+     89 ?        I<     0:00  \_ [scsi_tmf_1]
+     91 ?        I<     0:00  \_ [vfio-irqfd-clea]
+     93 ?        I<     0:00  \_ [ipv6_addrconf]
+    100 ?        I<     0:00  \_ [kworker/0:1H-kblockd]
+    104 ?        I<     0:00  \_ [kstrp]
+    107 ?        I<     0:00  \_ [kworker/u3:0]
+    120 ?        I<     0:00  \_ [charger_manager]
+    154 ?        S      0:00  \_ [scsi_eh_2]
+    157 ?        I<     0:00  \_ [cryptd]
+    161 ?        I<     0:00  \_ [scsi_tmf_2]
+    177 ?        S      0:00  \_ [irq/18-vmwgfx]
+    178 ?        I<     0:00  \_ [ttm_swap]
+    205 ?        I<     0:00  \_ [kdmflush]
+    232 ?        I<     0:00  \_ [raid5wq]
+    279 ?        S      0:00  \_ [jbd2/dm-0-8]
+    280 ?        I<     0:00  \_ [ext4-rsv-conver]
+    406 ?        I<     0:00  \_ [iprt-VBoxWQueue]
+    537 ?        I<     0:00  \_ [kaluad]
+    538 ?        I<     0:00  \_ [kmpath_rdacd]
+    539 ?        I<     0:00  \_ [kmpathd]
+    540 ?        I<     0:00  \_ [kmpath_handlerd]
+    555 ?        S<     0:00  \_ [loop0]
+    556 ?        S<     0:00  \_ [loop1]
+    559 ?        S<     0:00  \_ [loop2]
+    561 ?        S<     0:00  \_ [loop3]
+    562 ?        S<     0:00  \_ [loop4]
+    563 ?        S<     0:00  \_ [loop5]
+    570 ?        S      0:00  \_ [jbd2/sda2-8]
+    572 ?        I<     0:00  \_ [ext4-rsv-conver]
+   1286 ?        I      0:05  \_ [kworker/0:0-events]
+   1300 ?        I      0:00  \_ [kworker/u2:1-events_unbound]
+   1355 ?        I      0:00  \_ [kworker/0:2-cgroup_destroy]
+   1356 ?        I      0:00  \_ [kworker/u2:0-events_power_efficient]
+      1 ?        Ss     0:01 /sbin/init maybe-ubiquity
+    350 ?        S<s    0:00 /lib/systemd/systemd-journald
+    387 ?        Ss     0:00 /lib/systemd/systemd-udevd
+    541 ?        SLsl   0:00 /sbin/multipathd -d -s
+    585 ?        Ssl    0:00 /lib/systemd/systemd-timesyncd
+    627 ?        Ss     0:00 /lib/systemd/systemd-networkd
+    629 ?        Ss     0:00 /lib/systemd/systemd-resolved
+    642 ?        Ssl    0:00 /usr/lib/accountsservice/accounts-daemon
+    648 ?        Ss     0:00 /usr/sbin/cron -f
+    649 ?        Ss     0:00 /usr/bin/dbus-daemon --system 
+--address=systemd: --nofork --nopidfile --s
+    661 ?        Ss     0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher 
+--run-startup-triggers
+    663 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+    664 ?        Ssl    0:00 /usr/sbin/rsyslogd -n -iNONE
+    667 ?        Ssl    0:01 /usr/lib/snapd/snapd
+    674 ?        Ss     0:00 /lib/systemd/systemd-logind
+    677 ?        Ssl    0:00 /usr/lib/udisks2/udisksd
+    678 ?        Ss     0:00 /usr/sbin/atd -f
+    686 tty1     Ss     0:00 /bin/login -p --
+   1097 tty1     S+     0:00  \_ -bash
+    722 ?        Ss     0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 
+10-100 startups
+   1120 ?        Ss     0:00  \_ sshd: aspushkarev [priv]
+   1207 ?        S      0:00      \_ sshd: aspushkarev@pts/0
+   1208 pts/0    Ss     0:00          \_ -bash
+   1358 pts/0    R+     0:00              \_ ps afx
+    738 ?        Ssl    0:00 /usr/bin/python3 
+/usr/share/unattended-upgrades/unattended-upgrade-shutdo
+    752 ?        Ssl    0:00 /usr/sbin/ModemManager
+    762 ?        Ss     0:00 /usr/sbin/apache2 -k start
+    763 ?        Sl     0:00  \_ /usr/sbin/apache2 -k start
+    764 ?        Sl     0:00  \_ /usr/sbin/apache2 -k start
+    837 ?        Ss     0:00 nginx: master process /usr/sbin/nginx -g 
+daemon on; master_process on;
+    838 ?        S      0:00  \_ nginx: worker process
+    852 ?        Ssl    1:02 /usr/sbin/mysqld
+   1091 ?        Ss     0:00 /lib/systemd/systemd --user
+   1092 ?        S      0:00  \_ (sd-pam)
+aspushkarev@ubuntu-server-01:~$ ps afx | mysqld
+2023-07-21T12:05:05.676335Z 0 [Warning] [MY-010091] [Server] Can't create 
+test file /var/lib/mysql/mysqld_tmp_file_case_insensitive_test.lower-test
+2023-07-21T12:05:05.700686Z 0 [System] [MY-010116] [Server] 
+/usr/sbin/mysqld (mysqld 8.0.33-0ubuntu0.20.04.2) starting as process 1360
+2023-07-21T12:05:05.762383Z 0 [Warning] [MY-010091] [Server] Can't create 
+test file /var/lib/mysql/mysqld_tmp_file_case_insensitive_test.lower-test
+2023-07-21T12:05:05.762401Z 0 [Warning] [MY-010159] [Server] Setting 
+lower_case_table_names=2 because file system for /var/lib/mysql/ is case 
+insensitive
+2023-07-21T12:05:05.830079Z 0 [Warning] [MY-010122] [Server] One can only 
+use the --user switch if running as root
+2023-07-21T12:05:05.830129Z 0 [ERROR] [MY-013276] [Server] Failed to set 
+datadir to '/var/lib/mysql/' (OS errno: 13 - Permission denied)
+2023-07-21T12:05:05.834292Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-07-21T12:05:05.834854Z 0 [System] [MY-010910] [Server] 
+/usr/sbin/mysqld: Shutdown complete (mysqld 8.0.33-0ubuntu0.20.04.2)  
+(Ubuntu).
+aspushkarev@ubuntu-server-01:~$ ps afx | grep mysqld
+   1365 pts/0    D+     0:00              \_ grep --color=auto mysqld
+    852 ?        Ssl    1:03 /usr/sbin/mysqld
+aspushkarev@ubuntu-server-01:~$ sudo mysql
+[sudo] password for aspushkarev: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> exit
+Bye
+aspushkarev@ubuntu-server-01:~$ sudo ss -ntlp
+State        Recv-Q       Send-Q             Local Address:Port               
+Peer Address:Port       Process                                                                                               
+LISTEN       0            151                    127.0.0.1:3306                    
+0.0.0.0:*           users:(("mysqld",pid=852,fd=23))                                                                     
+LISTEN       0            511                      0.0.0.0:80                      
+0.0.0.0:*           users:(("nginx",pid=838,fd=6),("nginx",pid=837,fd=6))                                                
+LISTEN       0            4096               127.0.0.53%lo:53                      
+0.0.0.0:*           users:(("systemd-resolve",pid=629,fd=13))                                                            
+LISTEN       0            128                      0.0.0.0:22                      
+0.0.0.0:*           users:(("sshd",pid=722,fd=3))                                                                        
+LISTEN       0            70                     127.0.0.1:33060                   
+0.0.0.0:*           users:(("mysqld",pid=852,fd=21))                                                                     
+LISTEN       0            511                         [::]:80                         
+[::]:*           users:(("nginx",pid=838,fd=7),("nginx",pid=837,fd=7))                                                
+LISTEN       0            511                            *:8080                          
+*:*           
+users:(("apache2",pid=764,fd=4),("apache2",pid=763,fd=4),("apache2",pid=762,fd=4))                   
+LISTEN       0            511                            *:8081                          
+*:*           
+users:(("apache2",pid=764,fd=6),("apache2",pid=763,fd=6),("apache2",pid=762,fd=6))                   
+LISTEN       0            511                            *:8082                          
+*:*           
+users:(("apache2",pid=764,fd=8),("apache2",pid=763,fd=8),("apache2",pid=762,fd=8))                   
+LISTEN       0            128                         [::]:22                         
+[::]:*           users:(("sshd",pid=722,fd=4))                                                                        
+aspushkarev@ubuntu-server-01:~$ cd /etc/mysql
+aspushkarev@ubuntu-server-01:/etc/mysql$ ll
+total 32
+drwxr-xr-x   4 root root 4096 Jul 21 10:13 ./
+drwxr-xr-x 104 root root 4096 Jul 21 10:14 ../
+drwxr-xr-x   2 root root 4096 Jul 21 10:13 conf.d/
+-rw-------   1 root root  317 Jul 21 10:13 debian.cnf
+-rwxr-xr-x   1 root root  120 May 11 23:16 debian-start*
+lrwxrwxrwx   1 root root   24 Jul 21 10:13 my.cnf -> 
+/etc/alternatives/my.cnf
+-rw-r--r--   1 root root  839 Aug  3  2016 my.cnf.fallback
+-rw-r--r--   1 root root  682 Nov 15  2022 mysql.cnf
+drwxr-xr-x   2 root root 4096 Jul 21 10:13 mysql.conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql$ cd mysql.conf.d/
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ sudo nano mysqld.cnf 
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ systemctl re
+reboot             reload             rescue             restart
+reenable           reload-or-restart  reset-failed       revert
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ systemctl restart 
+mysql.service 
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to restart 'mysql.service'.
+Authenticating as: aspushkarev
+Password: 
+==== AUTHENTICATION COMPLETE ===
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ sudo ss -ntlp
+State      Recv-Q      Send-Q           Local Address:Port            Peer 
+Address:Port     Process                                                                                     
+LISTEN     0           151                    0.0.0.0:3306                 
+0.0.0.0:*         users:(("mysqld",pid=1446,fd=23))                                                          
+LISTEN     0           511                    0.0.0.0:80                   
+0.0.0.0:*         users:(("nginx",pid=838,fd=6),("nginx",pid=837,fd=6))                                      
+LISTEN     0           4096             127.0.0.53%lo:53                   
+0.0.0.0:*         users:(("systemd-resolve",pid=629,fd=13))                                                  
+LISTEN     0           128                    0.0.0.0:22                   
+0.0.0.0:*         users:(("sshd",pid=722,fd=3))                                                              
+LISTEN     0           70                   127.0.0.1:33060                
+0.0.0.0:*         users:(("mysqld",pid=1446,fd=21))                                                          
+LISTEN     0           511                       [::]:80                      
+[::]:*         users:(("nginx",pid=838,fd=7),("nginx",pid=837,fd=7))                                      
+LISTEN     0           511                          *:8080                       
+*:*         
+users:(("apache2",pid=764,fd=4),("apache2",pid=763,fd=4),("apache2",pid=762,fd=4))         
+LISTEN     0           511                          *:8081                       
+*:*         
+users:(("apache2",pid=764,fd=6),("apache2",pid=763,fd=6),("apache2",pid=762,fd=6))         
+LISTEN     0           511                          *:8082                       
+*:*         
+users:(("apache2",pid=764,fd=8),("apache2",pid=763,fd=8),("apache2",pid=762,fd=8))         
+LISTEN     0           128                       [::]:22                      
+[::]:*         users:(("sshd",pid=722,fd=4))                                                              
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ iptables -nvL
+Fatal: can't open lock file /run/xtables.lock: Permission denied
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ sudo iptables -nvL
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               
+destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               
+destination         
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               
+destination         
+aspushkarev@ubuntu-server-01:/etc/mysql/mysql.conf.d$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input 
+statement.
+
+mysql> CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 
+'aspushkarev';
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> GRANT REPLICATION SLAVE ON *.* TO repl@'%';
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SELECT User, Host FROM mysql.user;
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| repl             | %         |
+| debian-sys-maint | localhost |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+6 rows in set (0.05 sec)
+
+mysql> SHOW MASTER STATUS;
++---------------+----------+--------------+------------------+-------------------+
+| File          | Position | Binlog_Do_DB | Binlog_Ignore_DB | 
+Executed_Gtid_Set |
++---------------+----------+--------------+------------------+-------------------+
+| binlog.000005 |      690 |              |                  |                   
+|
++---------------+----------+--------------+------------------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT @@server_id;
++-------------+
+| @@server_id |
++-------------+
+|           1 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE DATABASE my_db;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> SHOW MASTER STATUS;
++---------------+----------+--------------+------------------+-------------------+
+| File          | Position | Binlog_Do_DB | Binlog_Ignore_DB | 
+Executed_Gtid_Set |
++---------------+----------+--------------+------------------+-------------------+
+| binlog.000005 |      878 |              |                  |                   
+|
++---------------+----------+--------------+------------------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> USE my_db;
+Database changed
+mysql> CREATE TABLE my_id (id int);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> SHOW TABLES;
++-----------------+
+| Tables_in_my_db |
++-----------------+
+| my_id           |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO my_id VALUES 2, 4, 6;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual 
+that corresponds to your MySQL server version for the right syntax to use 
+near '2, 4, 6' at line 1
+mysql> INSERT INTO my_id VALUES (2), (4), (6);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO my_id VALUES (245), (789), (3);
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> 
