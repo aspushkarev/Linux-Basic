@@ -1,0 +1,214 @@
+alexander@iMac-Alexander ~ % ssh aspushkarev@192.168.1.136   
+aspushkarev@192.168.1.136's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-153-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how 
+MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster 
+deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+41 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+*** System restart required ***
+Last login: Fri Jul 21 10:56:32 2023 from 192.168.1.189
+aspushkarev@ubuntu-server-01:~$ cd /etc/netplan/
+aspushkarev@ubuntu-server-01:/etc/netplan$ ll
+total 12
+drwxr-xr-x   2 root root 4096 May 29  2022 ./
+drwxr-xr-x 104 root root 4096 Jul 28 11:00 ../
+-rw-r--r--   1 root root  147 May 29  2022 00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ cat 00-installer-config.yaml 
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      dhcp4: true
+  version: 2
+aspushkarev@ubuntu-server-01:/etc/netplan$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group 
+default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:1f:48:a0 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.136/24 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 22459sec preferred_lft 22459sec
+    inet6 fe80::a00:27ff:fe1f:48a0/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:5c:f2:9a brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.15/24 brd 10.0.3.255 scope global dynamic enp0s8
+       valid_lft 86128sec preferred_lft 86128sec
+    inet6 fe80::a00:27ff:fe5c:f29a/64 scope link 
+       valid_lft forever preferred_lft forever
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml 
+[sudo] password for aspushkarev: 
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml 
+aspushkarev@ubuntu-server-01:/etc/netplan$ cp 00-installer-config.yaml 
+00-installer-config.yaml.bak
+cp: cannot create regular file '00-installer-config.yaml.bak': Permission 
+denied
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo cp 
+00-installer-config.yaml 00-installer-config.yaml.bak
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ ip r
+default via 192.168.1.1 dev enp0s3 proto dhcp src 192.168.1.136 metric 100 
+default via 10.0.3.2 dev enp0s8 proto dhcp src 10.0.3.15 metric 100 
+10.0.3.0/24 dev enp0s8 proto kernel scope link src 10.0.3.15 
+10.0.3.2 dev enp0s8 proto dhcp scope link src 10.0.3.15 metric 100 
+192.168.1.0/24 dev enp0s3 proto kernel scope link src 192.168.1.136 
+192.168.1.1 dev enp0s3 proto dhcp scope link src 192.168.1.136 metric 100 
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group 
+default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:1f:48:a0 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.136/24 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 21218sec preferred_lft 21218sec
+    inet6 fe80::a00:27ff:fe1f:48a0/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:5c:f2:9a brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.15/24 brd 10.0.3.255 scope global dynamic enp0s8
+       valid_lft 84886sec preferred_lft 84886sec
+    inet6 fe80::a00:27ff:fe5c:f29a/64 scope link 
+       valid_lft forever preferred_lft forever
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ 
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo apt install yamllint 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer 
+required:
+  libfwupdplugin1 libxmlb1
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  python3-pathspec
+The following NEW packages will be installed:
+  python3-pathspec yamllint
+0 upgraded, 2 newly installed, 0 to remove and 41 not upgraded.
+Need to get 56.8 kB of archives.
+After this operation, 284 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ru.archive.ubuntu.com/ubuntu focal/universe amd64 
+python3-pathspec all 0.7.0-1 [24.3 kB]
+Get:2 http://ru.archive.ubuntu.com/ubuntu focal/universe amd64 yamllint 
+all 1.20.0-1 [32.6 kB]
+Fetched 56.8 kB in 1s (77.3 kB/s)
+Selecting previously unselected package python3-pathspec.
+(Reading database ... 114990 files and directories currently installed.)
+Preparing to unpack .../python3-pathspec_0.7.0-1_all.deb ...
+Unpacking python3-pathspec (0.7.0-1) ...
+Selecting previously unselected package yamllint.
+Preparing to unpack .../yamllint_1.20.0-1_all.deb ...
+Unpacking yamllint (1.20.0-1) ...
+Setting up python3-pathspec (0.7.0-1) ...
+Setting up yamllint (1.20.0-1) ...
+Processing triggers for man-db (2.9.1-1) ...
+aspushkarev@ubuntu-server-01:/etc/netplan$ yamllint 
+00-installer-config.yaml
+00-installer-config.yaml
+  2:1       warning  missing document start "---"  (document-start)
+  7:14      warning  truthy value should be one of [false, true]  (truthy)
+  17:14     warning  truthy value should be one of [false, true]  (truthy)
+
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo netplan try
+
+** (generate:45299): WARNING **: 10:36:17.910: Problem encountered while 
+validating default route consistency.Please set up multiple routing tables 
+and use `routing-policy` instead.
+Error: Conflicting default route declarations for IPv4 (table: main, 
+metric: default), first declared in enp0s8 but also in enp0s3
+
+** (process:45297): WARNING **: 10:36:21.236: Problem encountered while 
+validating default route consistency.Please set up multiple routing tables 
+and use `routing-policy` instead.
+Error: Conflicting default route declarations for IPv4 (table: main, 
+metric: default), first declared in enp0s8 but also in enp0s3
+Do you want to keep these settings?
+
+
+Press ENTER before the timeout to accept the new configuration
+
+
+Changes will revert in  73 seconds
+Configuration accepted.
+aspushkarev@ubuntu-server-01:/etc/netplan$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group 
+default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:1f:48:a0 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.136/24 brd 192.168.1.255 scope global enp0s3
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe1f:48a0/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state 
+UP group default qlen 1000
+    link/ether 08:00:27:5c:f2:9a brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.15/24 brd 10.0.3.255 scope global enp0s8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe5c:f29a/64 scope link 
+       valid_lft forever preferred_lft forever
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ ping ya.ru
+PING ya.ru (5.255.255.242) 56(84) bytes of data.
+64 bytes from ya.ru (5.255.255.242): icmp_seq=1 ttl=247 time=40.2 ms
+64 bytes from ya.ru (5.255.255.242): icmp_seq=2 ttl=63 time=43.5 ms
+64 bytes from ya.ru (5.255.255.242): icmp_seq=3 ttl=247 time=38.6 ms
+64 bytes from ya.ru (5.255.255.242): icmp_seq=4 ttl=63 time=43.7 ms
+64 bytes from ya.ru (5.255.255.242): icmp_seq=5 ttl=247 time=36.5 ms
+^C
+--- ya.ru ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 36.479/40.498/43.727/2.794 ms
+aspushkarev@ubuntu-server-01:/etc/netplan$ sudo nano 
+00-installer-config.yaml
+aspushkarev@ubuntu-server-01:/etc/netplan$ ip r
+default via 10.0.3.2 dev enp0s8 proto static 
+default via 192.168.1.1 dev enp0s3 proto static 
+10.0.3.0/24 dev enp0s8 proto kernel scope link src 10.0.3.15 
+192.168.1.0/24 dev enp0s3 proto kernel scope link src 192.168.1.136 
+aspushkarev@ubuntu-server-01:/etc/netplan$ 

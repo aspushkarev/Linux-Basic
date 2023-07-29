@@ -1,0 +1,25 @@
+  281  ip -a
+  282  ip 
+  283  ip -c
+  284  ip a
+  285  cd /etc/netplan/
+  286  ll
+  287  cat 00-installer-config.yaml 
+  288  ip a
+  289  sudo nano 00-installer-config.yaml 
+  290  cp 00-installer-config.yaml 00-installer-config.yaml.bak
+  291  sudo cp 00-installer-config.yaml 00-installer-config.yaml.bak
+  292  sudo nano 00-installer-config.yaml
+  293  ip r
+  294  sudo nano 00-installer-config.yaml
+  295  ip a
+  296  sudo nano 00-installer-config.yaml
+  297  sudo apt install yamllint 
+  298  yamllint 00-installer-config.yaml
+  299  sudo netplan try
+  300  ip a
+  301  sudo nano 00-installer-config.yaml
+  302  ping ya.ru
+  303  sudo nano 00-installer-config.yaml
+  304  ip r
+  305  history
