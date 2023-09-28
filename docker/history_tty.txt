@@ -1,0 +1,849 @@
+aspushkarev@ubuntu-server-01:~$ sudo apt-get update
+Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Hit:3 https://download.docker.com/linux/ubuntu focal InRelease                 
+Get:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+Get:5 http://ru.archive.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:6 http://ru.archive.ubuntu.com/ubuntu focal-updates/main Translation-en [468 kB]
+Fetched 804 kB in 11s (73.4 kB/s)       
+Reading package lists... Done
+aspushkarev@ubuntu-server-01:~$ sudo apt-get install ca-certificates curl gnupg
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+ca-certificates is already the newest version (20230311ubuntu0.20.04.1).
+curl is already the newest version (7.68.0-1ubuntu2.19).
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libxmlb1 linux-headers-5.4.0-153
+  linux-headers-5.4.0-153-generic linux-image-5.4.0-153-generic
+  linux-modules-5.4.0-153-generic linux-modules-extra-5.4.0-153-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+aspushkarev@ubuntu-server-01:~$ sudo install -m 0755 -d /etc/apt/keyrings
+aspushkarev@ubuntu-server-01:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+File '/etc/apt/keyrings/docker.gpg' exists. Overwrite? (y/N) sudo chmod a+r /etc/apt/keyrings/docker.gpg
+Enter new filename: 
+gpg: no valid OpenPGP data found.
+gpg: dearmoring failed: File exists
+(23) Failed writing body
+aspushkarev@ubuntu-server-01:~$ # Add the repository to Apt sources:
+aspushkarev@ubuntu-server-01:~$ echo \
+>   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+>   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+>   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+aspushkarev@ubuntu-server-01:~$ sudo apt-get update
+Hit:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Hit:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease            
+Hit:4 http://ru.archive.ubuntu.com/ubuntu focal-security InRelease      
+Hit:5 https://download.docker.com/linux/ubuntu focal InRelease          
+Get:6 http://ru.archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [2,335 kB]
+Get:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [25.9 kB]
+Fetched 2,474 kB in 3s (969 kB/s)                          
+Reading package lists... Done
+aspushkarev@ubuntu-server-01:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+containerd.io is already the newest version (1.6.24-1).
+docker-buildx-plugin is already the newest version (0.11.2-1~ubuntu.20.04~focal).
+docker-ce-cli is already the newest version (5:24.0.6-1~ubuntu.20.04~focal).
+docker-ce is already the newest version (5:24.0.6-1~ubuntu.20.04~focal).
+docker-compose-plugin is already the newest version (2.21.0-1~ubuntu.20.04~focal).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libxmlb1 linux-headers-5.4.0-153
+  linux-headers-5.4.0-153-generic linux-image-5.4.0-153-generic
+  linux-modules-5.4.0-153-generic linux-modules-extra-5.4.0-153-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+aspushkarev@ubuntu-server-01:~$ sudo docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+aspushkarev@ubuntu-server-01:~$ client_loop: send disconnect: Broken pipe
+alexander@iMac-Alexander ~ % ssh aspushkarev@192.168.1.136
+aspushkarev@192.168.1.136's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-163-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed 27 Sep 2023 05:10:16 PM UTC
+
+  System load:  0.03              Users logged in:          0
+  Usage of /:   67.0% of 9.75GB   IPv4 address for docker0: 172.17.0.1
+  Memory usage: 56%               IPv4 address for enp0s3:  192.168.1.136
+  Swap usage:   3%                IPv4 address for enp0s8:  10.0.3.15
+  Processes:    125
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+2 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+Last login: Tue Sep 26 14:21:22 2023 from 192.168.1.189
+aspushkarev@ubuntu-server-01:~$ docker container run nginx
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:~$ sudo docker container run -d nginx
+[sudo] password for aspushkarev: 
+Unable to find image 'nginx:latest' locally
+docker: Error response from daemon: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io on 127.0.0.53:53: read udp 127.0.0.1:37269->127.0.0.53:53: i/o timeout.
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:~$ docker run --help
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Create and run a new container from an image
+
+Aliases:
+  docker container run, docker run
+
+Options:
+      --add-host list                  Add a custom host-to-IP mapping
+                                       (host:ip)
+      --annotation map                 Add an annotation to the container
+                                       (passed through to the OCI
+                                       runtime) (default map[])
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight),
+                                       between 10 and 1000, or 0 to
+                                       disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device
+                                       weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the
+                                       container
+      --cgroupns string                Cgroup namespace to use
+                                       (host|private)
+                                       'host':    Run the container in
+                                       the Docker host's cgroup namespace
+                                       'private': Run the container in
+                                       its own private cgroup namespace
+                                       '':        Use the cgroup
+                                       namespace as configured by the
+                                                  default-cgroupns-mode
+                                       option on the daemon (default)
+      --cidfile string                 Write the container ID to the file
+      --cpu-count int                  CPU count (Windows only)
+      --cpu-percent int                CPU percent (Windows only)
+      --cpu-period int                 Limit CPU CFS (Completely Fair
+                                       Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair
+                                       Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in
+                                       microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in
+                                       microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution
+                                       (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution
+                                       (0-3, 0,1)
+  -d, --detach                         Run container in background and
+                                       print container ID
+      --detach-keys string             Override the key sequence for
+                                       detaching a container
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed
+                                       devices list
+      --device-read-bps list           Limit read rate (bytes per second)
+                                       from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second)
+                                       from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per
+                                       second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second)
+                                       to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --domainname string              Container NIS domain name
+      --entrypoint string              Overwrite the default ENTRYPOINT
+                                       of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --gpus gpu-request               GPU devices to add to the
+                                       container ('all' to pass all GPUs)
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check
+                                       (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to
+                                       report unhealthy
+      --health-start-period duration   Start period for the container to
+                                       initialize before starting
+                                       health-retries countdown
+                                       (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to
+                                       run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container
+                                       that forwards signals and reaps
+                                       processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --io-maxbandwidth bytes          Maximum IO bandwidth limit for the
+                                       system drive (Windows only)
+      --io-maxiops uint                Maximum IOps limit for the system
+                                       drive (Windows only)
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC mode to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local
+                                       addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g.,
+                                       92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus
+                                       swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness
+                                       (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the
+                                       container
+      --name string                    Assign a name to the container
+      --network network                Connect a container to a network
+      --network-alias list             Add network-scoped alias for the
+                                       container
+      --no-healthcheck                 Disable any container-specified
+                                       HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000
+                                       to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1
+                                       for unlimited)
+      --platform string                Set platform if server is
+                                       multi-platform capable
+      --privileged                     Give extended privileges to this
+                                       container
+  -p, --publish list                   Publish a container's port(s) to
+                                       the host
+  -P, --publish-all                    Publish all exposed ports to
+                                       random ports
+      --pull string                    Pull image before running
+                                       ("always", "missing", "never")
+                                       (default "missing")
+  -q, --quiet                          Suppress the pull output
+      --read-only                      Mount the container's root
+                                       filesystem as read only
+      --restart string                 Restart policy to apply when a
+                                       container exits (default "no")
+      --rm                             Automatically remove the container
+                                       when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --sig-proxy                      Proxy received signals to the
+                                       process (default true)
+      --stop-signal string             Signal to stop the container
+      --stop-timeout int               Timeout (in seconds) to stop a
+                                       container
+      --storage-opt list               Storage driver options for the
+                                       container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format:
+                                       <name|uid>[:<group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the
+                                       container
+      --volumes-from list              Mount volumes from the specified
+                                       container(s)
+  -w, --workdir string                 Working directory inside the container
+aspushkarev@ubuntu-server-01:~$ docker container pull nginx
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Execute a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Create and run a new container from an image
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+aspushkarev@ubuntu-server-01:~$ sudo docker container pull nginx
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Execute a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Create and run a new container from an image
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+aspushkarev@ubuntu-server-01:~$ docker pull nginx
+Using default tag: latest
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/create?fromImage=nginx&tag=latest": dial unix /var/run/docker.sock: connect: permission denied
+aspushkarev@ubuntu-server-01:~$ sudo docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+a803e7c4b030: Pull complete 
+8b625c47d697: Pull complete 
+4d3239651a63: Pull complete 
+0f816efa513d: Pull complete 
+01d159b8db2f: Pull complete 
+5fb9a81470f3: Pull complete 
+9b1e1e7164db: Pull complete 
+Digest: sha256:32da30332506740a2f7c34d5dc70467b7f14ec67d912703568daff790ab3f755
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+aspushkarev@ubuntu-server-01:~$ sudo docker container ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED        STATUS                    PORTS     NAMES
+c358049fc800   hello-world   "/hello"   28 hours ago   Exited (0) 28 hours ago             elastic_williamson
+7fdc0cb4f213   hello-world   "/hello"   28 hours ago   Exited (0) 28 hours ago             angry_ptolemy
+0c757cf850bb   hello-world   "/hello"   30 hours ago   Exited (0) 30 hours ago             friendly_brattain
+099af3af76a0   hello-world   "/hello"   30 hours ago   Exited (0) 30 hours ago             jolly_williamson
+aspushkarev@ubuntu-server-01:~$ sudo docker container run nginx
+/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+/docker-entrypoint.sh: Configuration complete; ready for start up
+2023/09/27 18:22:10 [notice] 1#1: using the "epoll" event method
+2023/09/27 18:22:10 [notice] 1#1: nginx/1.25.2
+2023/09/27 18:22:10 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/09/27 18:22:10 [notice] 1#1: OS: Linux 5.4.0-163-generic
+2023/09/27 18:22:10 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/09/27 18:22:10 [notice] 1#1: start worker processes
+2023/09/27 18:22:10 [notice] 1#1: start worker process 28
+
+^C2023/09/27 18:22:42 [notice] 1#1: signal 2 (SIGINT) received, exiting
+2023/09/27 18:22:42 [notice] 28#28: exiting
+2023/09/27 18:22:42 [notice] 28#28: exit
+2023/09/27 18:22:42 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2023/09/27 18:22:42 [notice] 1#1: worker process 28 exited with code 0
+2023/09/27 18:22:42 [notice] 1#1: exit
+aspushkarev@ubuntu-server-01:~$ sudo docker container ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
+0f774bab695d   nginx         "/docker-entrypoint.…"   49 seconds ago   Exited (0) 11 seconds ago             wizardly_shaw
+c358049fc800   hello-world   "/hello"                 28 hours ago     Exited (0) 28 hours ago               elastic_williamson
+7fdc0cb4f213   hello-world   "/hello"                 28 hours ago     Exited (0) 28 hours ago               angry_ptolemy
+0c757cf850bb   hello-world   "/hello"                 30 hours ago     Exited (0) 30 hours ago               friendly_brattain
+099af3af76a0   hello-world   "/hello"                 30 hours ago     Exited (0) 30 hours ago               jolly_williamson
+aspushkarev@ubuntu-server-01:~$ sudo container stop 0f774bab695d
+sudo: container: command not found
+aspushkarev@ubuntu-server-01:~$ sudo docker container run -d nginx
+[sudo] password for aspushkarev: 
+8888988f16b50b3daec0433a3e7b7de3e0df3ad8b745c8831779d5eaba138c2c
+aspushkarev@ubuntu-server-01:~$ sudo docker container ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                    PORTS     NAMES
+8888988f16b5   nginx         "/docker-entrypoint.…"   11 seconds ago   Up 6 seconds              80/tcp    xenodochial_yonath
+0f774bab695d   nginx         "/docker-entrypoint.…"   17 hours ago     Exited (0) 17 hours ago             wizardly_shaw
+c358049fc800   hello-world   "/hello"                 45 hours ago     Exited (0) 45 hours ago             elastic_williamson
+7fdc0cb4f213   hello-world   "/hello"                 45 hours ago     Exited (0) 45 hours ago             angry_ptolemy
+0c757cf850bb   hello-world   "/hello"                 47 hours ago     Exited (0) 47 hours ago             friendly_brattain
+099af3af76a0   hello-world   "/hello"                 47 hours ago     Exited (0) 47 hours ago             jolly_williamson
+aspushkarev@ubuntu-server-01:~$ sudo docker volume ls
+[sudo] password for aspushkarev: 
+DRIVER    VOLUME NAME
+aspushkarev@ubuntu-server-01:~$ sudo docker volume create my_volume
+my_volume
+aspushkarev@ubuntu-server-01:~$ sudo docker volume ls
+DRIVER    VOLUME NAME
+local     my_volume
+aspushkarev@ubuntu-server-01:~$ sudo docker volume inspect my_volume
+[
+    {
+        "CreatedAt": "2023-09-28T11:27:56Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/my_volume/_data",
+        "Name": "my_volume",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+aspushkarev@ubuntu-server-01:~$ sudo docker inspect devtest
+[]
+Error: No such object: devtest
+aspushkarev@ubuntu-server-01:~$ sudo docker inspect my_volume
+[
+    {
+        "CreatedAt": "2023-09-28T11:27:56Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/my_volume/_data",
+        "Name": "my_volume",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+aspushkarev@ubuntu-server-01:~$ cd /etc/nginx/
+aspushkarev@ubuntu-server-01:/etc/nginx$ ls -la
+total 72
+drwxr-xr-x   8 root root 4096 Jul 14 17:36 .
+drwxr-xr-x 106 root root 4096 Sep 26 12:01 ..
+drwxr-xr-x   2 root root 4096 Nov 10  2022 conf.d
+-rw-r--r--   1 root root 1077 Feb  4  2019 fastcgi.conf
+-rw-r--r--   1 root root 1007 Feb  4  2019 fastcgi_params
+-rw-r--r--   1 root root 2837 Feb  4  2019 koi-utf
+-rw-r--r--   1 root root 2223 Feb  4  2019 koi-win
+-rw-r--r--   1 root root 3957 Feb  4  2019 mime.types
+drwxr-xr-x   2 root root 4096 Nov 10  2022 modules-available
+drwxr-xr-x   2 root root 4096 Jul 14 17:36 modules-enabled
+-rw-r--r--   1 root root 1490 Feb  4  2019 nginx.conf
+-rw-r--r--   1 root root  180 Feb  4  2019 proxy_params
+-rw-r--r--   1 root root  636 Feb  4  2019 scgi_params
+drwxr-xr-x   2 root root 4096 Jul 16 17:19 sites-available
+drwxr-xr-x   2 root root 4096 Jul 16 18:23 sites-enabled
+drwxr-xr-x   2 root root 4096 Jul 14 17:36 snippets
+-rw-r--r--   1 root root  664 Feb  4  2019 uwsgi_params
+-rw-r--r--   1 root root 3071 Feb  4  2019 win-utf
+aspushkarev@ubuntu-server-01:/etc/nginx$ cat nginx.conf 
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+	worker_connections 768;
+	# multi_accept on;
+}
+
+http {
+
+	##
+	# Basic Settings
+	##
+
+	sendfile on;
+	tcp_nopush on;
+	tcp_nodelay on;
+	keepalive_timeout 65;
+	types_hash_max_size 2048;
+	# server_tokens off;
+
+	# server_names_hash_bucket_size 64;
+	# server_name_in_redirect off;
+
+	include /etc/nginx/mime.types;
+	default_type application/octet-stream;
+
+	##
+	# SSL Settings
+	##
+
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+	ssl_prefer_server_ciphers on;
+
+	##
+	# Logging Settings
+	##
+
+	access_log /var/log/nginx/access.log;
+	error_log /var/log/nginx/error.log;
+
+	##
+	# Gzip Settings
+	##
+
+	gzip on;
+
+	# gzip_vary on;
+	# gzip_proxied any;
+	# gzip_comp_level 6;
+	# gzip_buffers 16 8k;
+	# gzip_http_version 1.1;
+	# gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+	##
+	# Virtual Host Configs
+	##
+
+	include /etc/nginx/conf.d/*.conf;
+	include /etc/nginx/sites-enabled/*;
+}
+
+
+#mail {
+#	# See sample authentication script at:
+#	# http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+# 
+#	# auth_http localhost/auth.php;
+#	# pop3_capabilities "TOP" "USER";
+#	# imap_capabilities "IMAP4rev1" "UIDPLUS";
+# 
+#	server {
+#		listen     localhost:110;
+#		protocol   pop3;
+#		proxy      on;
+#	}
+# 
+#	server {
+#		listen     localhost:143;
+#		protocol   imap;
+#		proxy      on;
+#	}
+#}
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=/etc/nginx/nginx.conf, terget=/etc/nginx nginx:latest
+invalid argument "source=/etc/nginx/nginx.conf," for "--mount" flag: invalid field '' must be a key=value pair
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=/etc/nginx/, terget=/etc/nginx nginx:latest
+invalid argument "source=/etc/nginx/," for "--mount" flag: invalid field '' must be a key=value pair
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=/etc/nginx, terget=/etc/nginx nginx:latest
+invalid argument "source=/etc/nginx," for "--mount" flag: invalid field '' must be a key=value pair
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=my_volume, terget=/etc/nginx nginx:latest
+invalid argument "source=my_volume," for "--mount" flag: invalid field '' must be a key=value pair
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=my_volume, target=/etc/nginx nginx:latest
+invalid argument "source=my_volume," for "--mount" flag: invalid field '' must be a key=value pair
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ docker run -d --name nginx_test --mount source=my_volume,target=/etc/nginx nginx:latest
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create?name=nginx_test": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+aspushkarev@ubuntu-server-01:/$ sudo docker run -d --name nginx_test --mount source=my_volume,target=/etc/nginx nginx:latest
+[sudo] password for aspushkarev: 
+afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5
+aspushkarev@ubuntu-server-01:/$ sudo docker inspect nginx_test
+[
+    {
+        "Id": "afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5",
+        "Created": "2023-09-28T12:00:50.394157655Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 6827,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-09-28T12:00:51.997188256Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:61395b4c586da2b9b3b7ca903ea6a448e6783dfdd7f768ff2c1a0f3360aaba99",
+        "ResolvConfPath": "/var/lib/docker/containers/afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5/hostname",
+        "HostsPath": "/var/lib/docker/containers/afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5/hosts",
+        "LogPath": "/var/lib/docker/containers/afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5/afb54448f10a5b22cd3abafe3261c0fd309e9f7c10ca00263aac76cdedb6d5f5-json.log",
+        "Name": "/nginx_test",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                31,
+                136
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "my_volume",
+                    "Target": "/etc/nginx"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/dc046a364821990ffe94ddc512fa7940bedb8ecebcadda58e157893088f3eddb-init/diff:/var/lib/docker/overlay2/ef778f29f56c31b679138d62fcf0da475675ab4328843af54dad7f07744b1239/diff:/var/lib/docker/overlay2/af3f6814b04b8a60057618896723c376f56d999144ed4f82c1adab01191db7b4/diff:/var/lib/docker/overlay2/e9a936eb85356228de0ed3eb76f9c584ddcf596e32c7b5ded5185527efc3eabb/diff:/var/lib/docker/overlay2/71e4c08920012feafecb44331ba88c19ef91aa2598dadd899a4812777bd7b997/diff:/var/lib/docker/overlay2/a7358d195abc8f91a428ebcf6a6bdc3678f0b8bed70b977b673f92aa2a15621a/diff:/var/lib/docker/overlay2/0ce65cb0ad9b374394acc7bb59fa1c9ce66b634ccc7dcfdc1ec9dae1ac3f502b/diff:/var/lib/docker/overlay2/8020de27d54d58a5679f2a281d0ce81a4e0e51768b5a5b1f000cdacdae2cf4cd/diff",
+                "MergedDir": "/var/lib/docker/overlay2/dc046a364821990ffe94ddc512fa7940bedb8ecebcadda58e157893088f3eddb/merged",
+                "UpperDir": "/var/lib/docker/overlay2/dc046a364821990ffe94ddc512fa7940bedb8ecebcadda58e157893088f3eddb/diff",
+                "WorkDir": "/var/lib/docker/overlay2/dc046a364821990ffe94ddc512fa7940bedb8ecebcadda58e157893088f3eddb/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "my_volume",
+                "Source": "/var/lib/docker/volumes/my_volume/_data",
+                "Destination": "/etc/nginx",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "afb54448f10a",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.25.2",
+                "NJS_VERSION=0.8.0",
+                "PKG_RELEASE=1~bookworm"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx:latest",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "ac7d3e4b1df9b8c81303a5ce94ddd63ba436fd5b17a95ed4f613fb37fca989b5",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/ac7d3e4b1df9",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "e2a146315dee500394761d1e2da5f742bda3ceb29b8ac7940d7c5ced427ca3b8",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.3",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:03",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "76b07343e301955d0417dba60dcef2223a44b4513dbcb0753d5e4724fc30a0ca",
+                    "EndpointID": "e2a146315dee500394761d1e2da5f742bda3ceb29b8ac7940d7c5ced427ca3b8",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:03",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+aspushkarev@ubuntu-server-01:/$ docker run -d \
+>   --name=nginxtest \
+>   --mount source=nginx-vol,destination=/usr/share/nginx/html \
+> ^C
+aspushkarev@ubuntu-server-01:/$ sudo docker run -d --name=nginxtest --mount source=my_nginx_vol,destination=/etc/nginx/ nginx:latest
+38fecb264f4dc1d7fcd2ca9c2a52faa475859ef3b16284bf79c2536886e517a7
+aspushkarev@ubuntu-server-01:/$ docker cont
+container  context    
+aspushkarev@ubuntu-server-01:/$ docker cont
+container  context    
+aspushkarev@ubuntu-server-01:/$ docker container ps -a
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json?all=1": dial unix /var/run/docker.sock: connect: permission denied
+aspushkarev@ubuntu-server-01:/$ sudo docker container ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                    PORTS     NAMES
+38fecb264f4d   nginx:latest   "/docker-entrypoint.…"   37 seconds ago   Up 35 seconds             80/tcp    nginxtest
+afb54448f10a   nginx:latest   "/docker-entrypoint.…"   9 minutes ago    Up 9 minutes              80/tcp    nginx_test
+8888988f16b5   nginx          "/docker-entrypoint.…"   59 minutes ago   Up 59 minutes             80/tcp    xenodochial_yonath
+0f774bab695d   nginx          "/docker-entrypoint.…"   18 hours ago     Exited (0) 18 hours ago             wizardly_shaw
+c358049fc800   hello-world    "/hello"                 46 hours ago     Exited (0) 46 hours ago             elastic_williamson
+7fdc0cb4f213   hello-world    "/hello"                 46 hours ago     Exited (0) 46 hours ago             angry_ptolemy
+0c757cf850bb   hello-world    "/hello"                 2 days ago       Exited (0) 2 days ago               friendly_brattain
+099af3af76a0   hello-world    "/hello"                 2 days ago       Exited (0) 2 days ago               jolly_williamson

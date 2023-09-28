@@ -1,0 +1,49 @@
+336  sudo apt-get update
+  337  sudo apt-get install docker-ce docker-ce-cli containerd.io 
+docker-buildx-plugin docker-compose-plugin
+  338  sudo docker run hello-world
+  339  docker container run nginx
+  340  sudo docker container run -d nginx
+  341  docker run --help
+  342  docker container pull nginx
+  343  sudo docker container pull nginx
+  344  docker pull nginx
+  345  sudo docker pull nginx
+  346  sudo docker container ps -a
+  347  sudo docker container run nginx
+  348  sudo docker container ps -a
+  349* 
+  350  sudo docker container run -d nginx
+  351  sudo docker container ps -a
+  352  sudo docker volume ls
+  353  sudo docker volume create my_volume
+  354  sudo docker volume ls
+  355  sudo docker volume inspect my_volume
+  356  sudo docker inspect devtest
+  357  sudo docker inspect my_volume
+  358  cd /etc/nginx/
+  359  ls -la
+  360  cat nginx.conf 
+  361  cd ../..
+  362  docker run -d --name nginx_test --mount 
+source=/etc/nginx/nginx.conf, terget=/etc/nginx nginx:latest
+  363  docker run -d --name nginx_test --mount source=/etc/nginx/, 
+terget=/etc/nginx nginx:latest
+  364  docker run -d --name nginx_test --mount source=/etc/nginx, 
+terget=/etc/nginx nginx:latest
+  365  docker run -d --name nginx_test --mount source=my_volume, 
+terget=/etc/nginx nginx:latest
+  366  docker run -d --name nginx_test --mount source=my_volume, 
+target=/etc/nginx nginx:latest
+  367  docker run -d --name nginx_test --mount 
+source=my_volume,target=/etc/nginx nginx:latest
+  368  sudo docker run -d --name nginx_test --mount 
+source=my_volume,target=/etc/nginx nginx:latest
+  369  sudo docker inspect nginx_test
+  370  docker run -d   --name=nginxtest   --mount 
+source=nginx-vol,destination=/usr/share/nginx/html \
+  371  sudo docker run -d --name=nginxtest --mount 
+source=my_nginx_vol,destination=/etc/nginx/ nginx:latest
+  372  docker container ps -a
+  373  sudo docker container ps -a
+  374  history
